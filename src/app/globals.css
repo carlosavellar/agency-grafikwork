@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@import "./style/font/stylesheet.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+* {
+  font-family: "GilroyRegular", serif;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+#home div h1,
+#services h2,
+#work h2,
+#tools h2,
+#about h2 {
+  font-family: "GilroyBold";
+}
+#services h3,
+#work h3,
+#tools h3,
+#about h3 {
+  font-family: "GilroyBold";
+}
+#about .stats div strong {
+  font-family: "GilroyBold";
+}
+
+#home div h1 {
+}
