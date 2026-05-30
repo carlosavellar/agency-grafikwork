@@ -58,7 +58,7 @@ const stats = [
 ];
 
 const eyebrowClass =
-  "mb-3 text-xs font-extrabold uppercase tracking-normal text-cyan-400";
+  "mb-3 text-xs font-extrabold uppercase tracking-wide text-cyan-400";
 const sectionClass = "px-[clamp(22px,7vw,96px)] py-[clamp(64px,9vw,128px)]";
 const primaryButtonClass =
   "inline-flex min-w-32 justify-center rounded-md bg-gradient-to-br from-cyan-400 to-lime-300 px-5 py-3.5 text-sm font-extrabold text-slate-950";
@@ -66,7 +66,7 @@ const primaryButtonClass =
 export default function Home() {
   return (
     <main className="bg-[#f6f8fb] text-[#18191f]">
-      <header className="fixed inset-x-0 top-0 z-10 flex items-center justify-between gap-8 bg-[#0d063f]/95 px-[clamp(18px,5vw,72px)] py-4 max-[900px]:items-start max-[900px]:flex-col max-[900px]:gap-3.5 max-[560px]:px-4">
+      <header className="fixed inset-x-0 top-0 z-10 flex items-center justify-between gap-8 bg-[#E9E9E9]/95 px-[clamp(18px,5vw,72px)] py-4 max-[900px]:items-start max-[900px]:flex-col max-[900px]:gap-3.5 max-[560px]:px-4">
         <a className="shrink-0" href="#home" aria-label="Grafikwork home">
           <Image
             className="h-auto w-[clamp(138px,18vw,192px)]"
@@ -78,7 +78,7 @@ export default function Home() {
           />
         </a>
         <nav
-          className="flex flex-wrap items-center justify-end gap-[clamp(14px,3vw,34px)] text-sm font-bold text-white max-[900px]:justify-start max-[560px]:gap-3 max-[560px]:text-xs"
+          className="flex flex-wrap items-center justify-end gap-[clamp(14px,3vw,34px)] text-sm font-bold text-[#808080] max-[900px]:justify-start max-[560px]:gap-3 max-[560px]:text-xs tracking-wide"
           aria-label="Main navigation"
         >
           <a
@@ -246,9 +246,11 @@ export default function Home() {
             Desenvolvedor front-end e designer, formado em Design Digital,
             pós-graduado em Gerenciamento de Projeto. Especialista em front-end.
           </p>
-          <p className="pt-8 ">
-            José Carlos / <span>Desenvolvedor & Designer</span>
-          </p>
+          <p>weww</p>
+          <cite className="pt-8 mt-8 text-[clamp(0.8rem,4vw,0.4rem)]">
+            José Carlos / <span>Desenvolvedor & Designer</span>/{" "}
+            <span className="text-[#0A66C2]">Linkedin</span>
+          </cite>
         </div>
       </section>
 
@@ -310,7 +312,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-[1040px] grid-cols-2 gap-x-[clamp(38px,8vw,104px)] gap-y-[clamp(28px,5vw,58px)] max-[900px]:grid-cols-1">
           {tools.map((tool) => (
             <article
-              className="grid grid-cols-[96px_minmax(0,1fr)] items-center gap-6 max-[560px]:grid-cols-[76px_minmax(0,1fr)] max-[560px]:items-start"
+              className="grid grid-cols-[96px_minmax(0,1fr)] items-center gap-6 max-[560px]:grid-cols-[76px_minmax(0,1fr)] max-[560px]:items-start text-[#666]"
               key={tool.title}
             >
               <div className="flex aspect-square items-center justify-center rounded-lg border border-black/10 bg-[#f3f7fb] p-4 max-[560px]:p-3.5">
@@ -326,7 +328,7 @@ export default function Home() {
                 <h3 className="mb-2 text-[clamp(1.18rem,2vw,1.55rem)] font-bold">
                   {tool.title}
                 </h3>
-                <p className="mb-0 leading-7 text-[#6f7280]">{tool.body}</p>
+                <p className="mb-0 leading-7 text-[#666]">{tool.body}</p>
               </div>
             </article>
           ))}
