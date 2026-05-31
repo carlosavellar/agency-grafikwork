@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 const tools = [
   {
@@ -64,41 +67,92 @@ const primaryButtonClass =
   "inline-flex min-w-32 justify-center rounded-md bg-gradient-to-br from-cyan-400 to-lime-300 px-5 py-3.5 text-sm font-extrabold text-slate-950";
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <main className="bg-[#f6f8fb] text-[#18191f]">
-      <header className="fixed inset-x-0 top-0 z-10 flex items-center justify-between gap-8 bg-[#E9E9E9]/95 px-[clamp(18px,5vw,72px)] py-4 max-[900px]:items-start max-[900px]:flex-col max-[900px]:gap-3.5 max-[560px]:px-4">
-        <a className="shrink-0" href="#home" aria-label="Grafikwork home">
-          <Image
-            className="h-auto w-[clamp(138px,18vw,192px)]"
-            src="/assets/logo.png"
-            alt="Grafikwork"
-            width={192}
-            height={58}
-            priority
-          />
-        </a>
+      <header className="sticky inset-x-0 top-0 z-10 flex items-center justify-between gap-8 bg-[#E9E9E9]/95 px-[clamp(18px,5vw,72px)] py-4 max-[700px]:flex-col max-[700px]:items-stretch max-[700px]:gap-0 max-[560px]:px-4">
+        <div className="flex items-center justify-between gap-8 max-[700px]:w-full">
+          <a className="shrink-0" href="#home" aria-label="Grafikwork home">
+            <Image
+              className="h-auto w-[clamp(138px,18vw,192px)]"
+              src="/assets/logo.png"
+              alt="Grafikwork"
+              width={192}
+              height={58}
+              priority
+            />
+          </a>
+          <button
+            className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-md border border-black/10 bg-white/70 text-[#18191f] shadow-sm max-[700px]:inline-flex"
+            type="button"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+            aria-controls="main-navigation"
+            onClick={() => setIsMenuOpen((current) => !current)}
+          >
+            <span className="relative block h-4 w-5" aria-hidden="true">
+              <span
+                className={`absolute left-0 top-0 h-0.5 w-5 rounded bg-current transition ${
+                  isMenuOpen ? "translate-y-[7px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-[7px] h-0.5 w-5 rounded bg-current transition ${
+                  isMenuOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`absolute bottom-0 left-0 h-0.5 w-5 rounded bg-current transition ${
+                  isMenuOpen ? "-translate-y-[7px] -rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
+        </div>
         <nav
-          className="flex flex-wrap items-center justify-end gap-[clamp(14px,3vw,34px)] text-sm font-bold text-[#808080] max-[900px]:justify-start max-[560px]:gap-3 max-[560px]:text-xs tracking-wide"
+          id="main-navigation"
+          className={`flex flex-wrap items-center justify-end gap-[clamp(14px,3vw,34px)] text-sm font-bold tracking-wide text-[#808080] transition-[max-height,opacity,transform,margin,padding] duration-300 ease-out max-[700px]:w-full max-[700px]:flex-col max-[700px]:items-start max-[700px]:gap-3 max-[700px]:overflow-hidden max-[700px]:text-sm ${
+            isMenuOpen
+              ? "max-[700px]:visible max-[700px]:pointer-events-auto max-[700px]:mt-4 max-[700px]:max-h-64 max-[700px]:border-t max-[700px]:border-black/10 max-[700px]:pt-4 max-[700px]:opacity-100 max-[700px]:translate-y-0"
+              : "max-[700px]:invisible max-[700px]:pointer-events-none max-[700px]:mt-0 max-[700px]:max-h-0 max-[700px]:border-t-0 max-[700px]:pt-0 max-[700px]:opacity-0 max-[700px]:-translate-y-2"
+          }`}
           aria-label="Main navigation"
         >
           <a
             className="opacity-80 transition hover:opacity-100"
             href="#services"
+            onClick={closeMenu}
           >
             Servicos
           </a>
-          <a className="opacity-80 transition hover:opacity-100" href="#tools">
+          <a
+            className="opacity-80 transition hover:opacity-100"
+            href="#tools"
+            onClick={closeMenu}
+          >
             Ferramentas
           </a>
-          <a className="opacity-80 transition hover:opacity-100" href="#about">
+          <a
+            className="opacity-80 transition hover:opacity-100"
+            href="#about"
+            onClick={closeMenu}
+          >
             About
           </a>
-          <a className="opacity-80 transition hover:opacity-100" href="#work">
+          <a
+            className="opacity-80 transition hover:opacity-100"
+            href="#work"
+            onClick={closeMenu}
+          >
             Work
           </a>
           <a
             className="opacity-80 transition hover:opacity-100"
             href="#contact"
+            onClick={closeMenu}
           >
             Contact
           </a>
@@ -107,7 +161,7 @@ export default function Home() {
 
       <section
         id="home"
-        className="relative flex min-h-[min(760px,92vh)] items-end overflow-hidden px-[clamp(22px,7vw,96px)] pb-18 pt-40 max-[900px]:min-h-[760px] max-[900px]:pt-52 max-[560px]:min-h-[720px] max-[560px]:px-4 max-[560px]:pb-12 max-[560px]:pt-48"
+        className="relative flex min-h-[min(760px,92vh)] items-end overflow-hidden px-[clamp(22px,7vw,96px)] pb-18 pt-24 max-[900px]:min-h-[760px] max-[900px]:pt-32 max-[560px]:min-h-[720px] max-[560px]:px-4 max-[560px]:pb-12 max-[560px]:pt-24"
       >
         <Image
           className="object-cover"
