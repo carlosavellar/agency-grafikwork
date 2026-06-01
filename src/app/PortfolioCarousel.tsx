@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import type { CSSProperties } from "react";
+import { useState } from "react";
 
 type PortfolioItem = {
   title: string;
@@ -59,7 +60,7 @@ const portfolioItems: PortfolioItem[] = [
     image: "/assets/hero-programming.jpg",
   },
   {
-    title: "〽️Programming Landing Visual",
+    title: "Programming Landing Visual II",
     description:
       "A full-width digital hero image suitable for portfolios, technology pages, and campaign landing pages.",
     image: "/assets/hero-programming.jpg",
@@ -68,86 +69,89 @@ const portfolioItems: PortfolioItem[] = [
 
 const visibleCount = 4;
 
+const carouselStyle = {
+  "--carousel-gap": "1.25rem",
+} as CSSProperties;
+
 export default function PortfolioCarousel() {
   const [startIndex, setStartIndex] = useState(0);
   const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
 
-  const visibleItems = useMemo(
-    () => portfolioItems.slice(startIndex, startIndex + visibleCount),
-    [startIndex],
-  );
-
+  const lastStartIndex = Math.max(0, portfolioItems.length - visibleCount);
   const canGoPrevious = startIndex > 0;
-  const canGoNext = startIndex + visibleCount < portfolioItems.length;
+  const canGoNext = startIndex < lastStartIndex;
 
   function showPrevious() {
     setStartIndex((current) => Math.max(0, current - visibleCount));
   }
 
   function showNext() {
-    debugger;
-    setStartIndex((current) => {
-      console.log(current, "⛔");
-      return Math.min(
-        portfolioItems.length - visibleCount,
-        current + visibleCount,
-      );
-    });
+    setStartIndex((current) =>
+      Math.min(lastStartIndex, current + visibleCount),
+    );
   }
 
   return (
-    <div className="relative mx-auto max-w-[1120px]">
+    <div
+      className="relative mx-auto max-w-[1120px] [--gap-count:3] [--items-per-view:4] max-[1000px]:[--gap-count:1] max-[1000px]:[--items-per-view:2] max-[560px]:[--gap-count:0] max-[560px]:[--items-per-view:1]"
+      style={carouselStyle}
+    >
       <div className="mb-6 flex items-center justify-end gap-3">
-        {canGoPrevious ? (
-          <button
-            className="flex h-11 w-11 items-center justify-center rounded-md border border-black/10 bg-white text-2xl font-black text-[#0d063f] shadow-sm transition hover:border-cyan-400 hover:text-cyan-500"
-            type="button"
-            aria-label="Show previous portfolio images"
-            onClick={showPrevious}
-          >
-            &lt;
-          </button>
-        ) : null}
-        {canGoNext ? (
-          <button
-            className="flex h-11 w-11 items-center justify-center rounded-md border border-black/10 bg-white text-2xl font-black text-[#0d063f] shadow-sm transition hover:border-cyan-400 hover:text-cyan-500"
-            type="button"
-            aria-label="Show next portfolio images"
-            onClick={showNext}
-          >
-            &gt;
-          </button>
-        ) : null}
+        <button
+          className="flex h-11 w-11 items-center justify-center rounded-md border border-black/10 bg-white text-2xl font-black text-[#0d063f] shadow-sm transition hover:border-cyan-400 hover:text-cyan-500 disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-black/10 disabled:hover:text-[#0d063f]"
+          type="button"
+          aria-label="Show previous portfolio images"
+          onClick={showPrevious}
+          disabled={!canGoPrevious}
+        >
+          &lt;
+        </button>
+        <button
+          className="flex h-11 w-11 items-center justify-center rounded-md border border-black/10 bg-white text-2xl font-black text-[#0d063f] shadow-sm transition hover:border-cyan-400 hover:text-cyan-500 disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-black/10 disabled:hover:text-[#0d063f]"
+          type="button"
+          aria-label="Show next portfolio images"
+          onClick={showNext}
+          disabled={!canGoNext}
+        >
+          &gt;
+        </button>
       </div>
 
-      <div className="grid grid-cols-4 gap-5 max-[1000px]:grid-cols-2 max-[560px]:grid-cols-1">
-        {visibleItems.map((item) => (
-          <button
-            className="group overflow-hidden rounded-lg bg-white text-left shadow-[0_16px_40px_rgba(13,6,63,0.1)] transition hover:-translate-y-1 hover:shadow-[0_22px_58px_rgba(13,6,63,0.16)]"
-            key={item.title}
-            type="button"
-            onClick={() => setSelectedItem(item)}
-          >
-            <span className="relative block aspect-[4/3] bg-[#0d063f]">
-              <Image
-                className="object-cover transition duration-300 group-hover:scale-105"
-                src={item.image}
-                alt={item.title}
-                fill
-                sizes="(max-width: 560px) 100vw, (max-width: 1000px) 50vw, 25vw"
-              />
-              <span className="absolute inset-0 bg-gradient-to-t from-[#0d063f]/45 to-transparent opacity-60" />
-            </span>
-            <span className="block p-4">
-              <span className="block text-base font-black text-[#18191f]">
-                {item.title}
+      <div className="overflow-hidden">
+        <div
+          className="flex gap-5 transition-transform duration-500 ease-out"
+          style={{
+            transform: `translateX(calc(${startIndex} * (((100% - (var(--carousel-gap) * var(--gap-count))) / var(--items-per-view)) + var(--carousel-gap)) * -1))`,
+          }}
+        >
+          {portfolioItems.map((item, itemIndex) => (
+            <button
+              className="group min-w-0 shrink-0 basis-[calc((100%-var(--carousel-gap)*var(--gap-count))/var(--items-per-view))] overflow-hidden rounded-lg bg-white text-left shadow-[0_16px_40px_rgba(13,6,63,0.1)] transition hover:-translate-y-1 hover:shadow-[0_22px_58px_rgba(13,6,63,0.16)]"
+              key={`${item.title}-${itemIndex}`}
+              type="button"
+              onClick={() => setSelectedItem(item)}
+            >
+              <span className="relative block aspect-[4/3] bg-[#0d063f]">
+                <Image
+                  className="object-cover transition duration-300 group-hover:scale-105"
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 560px) 100vw, (max-width: 1000px) 50vw, 25vw"
+                />
+                <span className="absolute inset-0 bg-gradient-to-t from-[#0d063f]/45 to-transparent opacity-60" />
               </span>
-              <span className="mt-2 line-clamp-2 block text-sm leading-6 text-[#6f7280]">
-                {item.description}
+              <span className="block p-4">
+                <span className="block text-base font-black text-[#18191f]">
+                  {item.title}
+                </span>
+                <span className="mt-2 line-clamp-2 block text-sm leading-6 text-[#6f7280]">
+                  {item.description}
+                </span>
               </span>
-            </span>
-          </button>
-        ))}
+            </button>
+          ))}
+        </div>
       </div>
 
       {selectedItem ? (
