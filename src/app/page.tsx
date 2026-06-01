@@ -1,7 +1,5 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
+import PortfolioCarousel from "./PortfolioCarousel";
 
 const tools = [
   {
@@ -47,112 +45,54 @@ const services = [
   },
 ];
 
-const projects = [
-  "Landing page redesign",
-  "Portfolio system",
-  "Creative dashboard",
-  "Brand website",
-];
-
 const stats = [
-  ["25+", "desenvolvendo aplicações web."],
-  ["400+", "Projetos desenvolvidos."],
-  ["100%", " de foco em boas praticas."],
+  ["5+", "Years"],
+  ["38", "Projects"],
+  ["22", "Clients"],
 ];
 
 const eyebrowClass =
-  "mb-3 text-xs font-extrabold uppercase tracking-wide text-cyan-400";
+  "mb-3 text-xs font-extrabold uppercase tracking-normal text-cyan-400";
 const sectionClass = "px-[clamp(22px,7vw,96px)] py-[clamp(64px,9vw,128px)]";
 const primaryButtonClass =
   "inline-flex min-w-32 justify-center rounded-md bg-gradient-to-br from-cyan-400 to-lime-300 px-5 py-3.5 text-sm font-extrabold text-slate-950";
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const closeMenu = () => setIsMenuOpen(false);
-
   return (
     <main className="bg-[#f6f8fb] text-[#18191f]">
-      <header className="sticky inset-x-0 top-0 z-10 flex items-center justify-between gap-8 bg-[#E9E9E9]/95 px-[clamp(18px,5vw,72px)] py-4 max-[700px]:flex-col max-[700px]:items-stretch max-[700px]:gap-0 max-[560px]:px-4">
-        <div className="flex items-center justify-between gap-8 max-[700px]:w-full">
-          <a className="shrink-0" href="#home" aria-label="Grafikwork home">
-            <Image
-              className="h-auto w-[clamp(138px,18vw,192px)]"
-              src="/assets/logo.png"
-              alt="Grafikwork"
-              width={192}
-              height={58}
-              priority
-            />
-          </a>
-          <button
-            className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-md border border-black/10 bg-white/70 text-[#18191f] shadow-sm max-[700px]:inline-flex"
-            type="button"
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMenuOpen}
-            aria-controls="main-navigation"
-            onClick={() => setIsMenuOpen((current) => !current)}
-          >
-            <span className="relative block h-4 w-5" aria-hidden="true">
-              <span
-                className={`absolute left-0 top-0 h-0.5 w-5 rounded bg-current transition ${
-                  isMenuOpen ? "translate-y-[7px] rotate-45" : ""
-                }`}
-              />
-              <span
-                className={`absolute left-0 top-[7px] h-0.5 w-5 rounded bg-current transition ${
-                  isMenuOpen ? "opacity-0" : ""
-                }`}
-              />
-              <span
-                className={`absolute bottom-0 left-0 h-0.5 w-5 rounded bg-current transition ${
-                  isMenuOpen ? "-translate-y-[7px] -rotate-45" : ""
-                }`}
-              />
-            </span>
-          </button>
-        </div>
+      <header className="fixed inset-x-0 top-0 z-10 flex items-center justify-between gap-8 bg-[#0d063f]/95 px-[clamp(18px,5vw,72px)] py-4 max-[900px]:items-start max-[900px]:flex-col max-[900px]:gap-3.5 max-[560px]:px-4">
+        <a className="shrink-0" href="#home" aria-label="Grafikwork home">
+          <Image
+            className="h-auto w-[clamp(138px,18vw,192px)]"
+            src="/assets/logo.png"
+            alt="Grafikwork"
+            width={192}
+            height={58}
+            priority
+          />
+        </a>
         <nav
-          id="main-navigation"
-          className={`flex flex-wrap items-center justify-end gap-[clamp(14px,3vw,34px)] text-sm font-bold tracking-wide text-[#808080] transition-[max-height,opacity,transform,margin,padding] duration-300 ease-out max-[700px]:w-full max-[700px]:flex-col max-[700px]:items-start max-[700px]:gap-3 max-[700px]:overflow-hidden max-[700px]:text-sm ${
-            isMenuOpen
-              ? "max-[700px]:visible max-[700px]:pointer-events-auto max-[700px]:mt-4 max-[700px]:max-h-64 max-[700px]:border-t max-[700px]:border-black/10 max-[700px]:pt-4 max-[700px]:opacity-100 max-[700px]:translate-y-0"
-              : "max-[700px]:invisible max-[700px]:pointer-events-none max-[700px]:mt-0 max-[700px]:max-h-0 max-[700px]:border-t-0 max-[700px]:pt-0 max-[700px]:opacity-0 max-[700px]:-translate-y-2"
-          }`}
+          className="flex flex-wrap items-center justify-end gap-[clamp(14px,3vw,34px)] text-sm font-bold text-white max-[900px]:justify-start max-[560px]:gap-3 max-[560px]:text-xs"
           aria-label="Main navigation"
         >
           <a
             className="opacity-80 transition hover:opacity-100"
             href="#services"
-            onClick={closeMenu}
           >
             Servicos
           </a>
-          <a
-            className="opacity-80 transition hover:opacity-100"
-            href="#tools"
-            onClick={closeMenu}
-          >
+          <a className="opacity-80 transition hover:opacity-100" href="#tools">
             Ferramentas
           </a>
-          <a
-            className="opacity-80 transition hover:opacity-100"
-            href="#about"
-            onClick={closeMenu}
-          >
+          <a className="opacity-80 transition hover:opacity-100" href="#about">
             About
           </a>
-          <a
-            className="opacity-80 transition hover:opacity-100"
-            href="#work"
-            onClick={closeMenu}
-          >
+          <a className="opacity-80 transition hover:opacity-100" href="#work">
             Work
           </a>
           <a
             className="opacity-80 transition hover:opacity-100"
             href="#contact"
-            onClick={closeMenu}
           >
             Contact
           </a>
@@ -161,7 +101,7 @@ export default function Home() {
 
       <section
         id="home"
-        className="relative flex min-h-[min(760px,92vh)] items-end overflow-hidden px-[clamp(22px,7vw,96px)] pb-18 pt-24 max-[900px]:min-h-[760px] max-[900px]:pt-32 max-[560px]:min-h-[720px] max-[560px]:px-4 max-[560px]:pb-12 max-[560px]:pt-24"
+        className="relative flex min-h-[min(760px,92vh)] items-end overflow-hidden px-[clamp(22px,7vw,96px)] pb-18 pt-40 max-[900px]:min-h-[760px] max-[900px]:pt-52 max-[560px]:min-h-[720px] max-[560px]:px-4 max-[560px]:pb-12 max-[560px]:pt-48"
       >
         <Image
           className="object-cover"
@@ -174,10 +114,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#09042b]/85 via-[#120650]/50 to-[#09042b]/30" />
         <div className="relative z-[1] max-w-[690px] text-white">
           <p className={eyebrowClass}>Creative development portfolio</p>
-          <h1 className="mb-5 text-[clamp(2.45rem,6vw,3.7rem)] font-bold leading-[0.95]">
-            Desenvolvimento
-            <br />
-            Front-end
+          <h1 className="mb-5 text-[clamp(2.45rem,6vw,5.6rem)] font-bold leading-[0.95]">
+            Desenvolvimento Front-end
           </h1>
           <p className="max-w-[620px] text-[clamp(1rem,1.6vw,1.18rem)] leading-7 text-white/80">
             A Grafikwork é uma empresa especializada em desenvolvimento
@@ -282,29 +220,20 @@ export default function Home() {
           </h2>
           <p className="leading-7 text-[#6f7280]">
             Empresa com mais de 25 anos de experiência em projetos de aplicações
-            web e mobile, atuando desde o planejamento, desenvolvimento e design
-            UX/UI até front-end, testes e produção. Nosso objetivo é desenvolver
-            aplicações que agreguem valor à sua empresa, projeto ou produto.
+            web e mobile, do planejamento, desenvolvimento, design UX/UI,
+            front-end, testes e produção. Nosso objetivo desenvolver aplicações
+            que agreguem valores para sua empresa, projeto, prtoduto.
           </p>
-          <div className="stats mt-7 grid grid-cols-3 gap-4 border-t border-black/10 pt-6 max-[560px]:grid-cols-1">
+          <div className="mt-7 grid grid-cols-3 gap-4 border-t border-black/10 pt-6 max-[560px]:grid-cols-1">
             {stats.map(([value, label]) => (
               <div key={label}>
-                <strong className="block text-[clamp(1.7rem,4vw,2.3rem)] font-bold">
+                <strong className="block text-[clamp(1.7rem,4vw,3rem)] font-bold">
                   {value}
                 </strong>
                 <span className="text-sm text-[#6f7280]">{label}</span>
               </div>
             ))}
           </div>
-          <p className="leading-7 text-[#6f7280] pt-8">
-            Desenvolvedor front-end e designer, formado em Design Digital,
-            pós-graduado em Gerenciamento de Projeto. Especialista em front-end.
-          </p>
-          <p>weww</p>
-          <cite className="pt-8 mt-8 text-[clamp(0.8rem,4vw,0.4rem)]">
-            José Carlos / <span>Desenvolvedor & Designer</span>/{" "}
-            <span className="text-[#0A66C2]">Linkedin</span>
-          </cite>
         </div>
       </section>
 
@@ -314,43 +243,12 @@ export default function Home() {
           <h2 className="mb-5 text-[clamp(2rem,4vw,3rem)] font-bold leading-none">
             Portifólio
           </h2>
+          <p className="mx-auto max-w-xl leading-7 text-[#6f7280]">
+            Explore alguns trabalhos e materiais visuais. Use as setas para
+            navegar e clique em uma imagem para ver detalhes maiores.
+          </p>
         </div>
-        <div className="grid grid-cols-[1.2fr_0.8fr] gap-7 max-[900px]:grid-cols-1">
-          <article className="relative aspect-[16/10] min-h-[360px] overflow-hidden rounded-lg text-white after:absolute after:inset-0 after:bg-gradient-to-b after:from-transparent after:from-40% after:to-[#09042b]/85 max-[900px]:aspect-auto max-[900px]:min-h-80">
-            <Image
-              className="object-cover"
-              src="/assets/hero-card.jpg"
-              alt="Programming themed project preview"
-              fill
-              sizes="(max-width: 900px) 100vw, 55vw"
-            />
-            <div className="absolute inset-x-7 bottom-7 z-[1]">
-              <span className="text-xs font-black uppercase text-cyan-400">
-                Featured
-              </span>
-              <h3 className="mb-0 text-xl font-bold">
-                Developer portfolio hero
-              </h3>
-            </div>
-          </article>
-          <div className="grid gap-4">
-            {projects.map((project, index) => (
-              <article
-                className="rounded-lg border border-black/10 bg-white p-6"
-                key={project}
-              >
-                <span className="text-xs font-black uppercase text-cyan-400">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mb-2 text-xl font-bold">{project}</h3>
-                <p className="mb-0 leading-7 text-[#6f7280]">
-                  Responsive composition, visual polish, and production-ready
-                  page structure.
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
+        <PortfolioCarousel />
       </section>
       <section id="tools" className={`${sectionClass} bg-white`}>
         <div className="mx-auto mb-[clamp(40px,7vw,72px)] max-w-[720px] text-center">
@@ -366,7 +264,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-[1040px] grid-cols-2 gap-x-[clamp(38px,8vw,104px)] gap-y-[clamp(28px,5vw,58px)] max-[900px]:grid-cols-1">
           {tools.map((tool) => (
             <article
-              className="grid grid-cols-[96px_minmax(0,1fr)] items-center gap-6 max-[560px]:grid-cols-[76px_minmax(0,1fr)] max-[560px]:items-start text-[#666]"
+              className="grid grid-cols-[96px_minmax(0,1fr)] items-center gap-6 max-[560px]:grid-cols-[76px_minmax(0,1fr)] max-[560px]:items-start"
               key={tool.title}
             >
               <div className="flex aspect-square items-center justify-center rounded-lg border border-black/10 bg-[#f3f7fb] p-4 max-[560px]:p-3.5">
@@ -382,7 +280,7 @@ export default function Home() {
                 <h3 className="mb-2 text-[clamp(1.18rem,2vw,1.55rem)] font-bold">
                   {tool.title}
                 </h3>
-                <p className="mb-0 leading-7 text-[#666]">{tool.body}</p>
+                <p className="mb-0 leading-7 text-[#6f7280]">{tool.body}</p>
               </div>
             </article>
           ))}
@@ -416,7 +314,7 @@ export default function Home() {
         />
         <div className="flex items-center gap-5">
           <a className="text-sm font-bold text-white/80" href="#home">
-            Voltar para o topo
+            Back to top
           </a>
           <a href="https://github.com" aria-label="GitHub">
             <Image src="/assets/github.png" alt="" width={22} height={22} />

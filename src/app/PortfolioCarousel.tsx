@@ -1,0 +1,198 @@
+"use client";
+
+import Image from "next/image";
+import { useMemo, useState } from "react";
+
+type PortfolioItem = {
+  title: string;
+  description: string;
+  image: string;
+};
+
+const portfolioItems: PortfolioItem[] = [
+  {
+    title: "Developer Portfolio Hero",
+    description:
+      "A bold programming-themed landing section with strong visual hierarchy, responsive spacing, and a clear project call to action.",
+    image: "/assets/hero-card.jpg",
+  },
+  {
+    title: "UX/UI Service Layout",
+    description:
+      "A service card concept focused on interface design, using a compact card structure and clear visual iconography.",
+    image: "/assets/servicos-ux-ui.jpg",
+  },
+  {
+    title: "Frontend System",
+    description:
+      "A frontend presentation card using React and Next.js patterns to communicate modern implementation work.",
+    image: "/assets/react.png",
+  },
+  {
+    title: "Web Development Card",
+    description:
+      "A polished service visual for code-focused projects, built to sit cleanly inside responsive portfolio grids.",
+    image: "/assets/web-dev.png",
+  },
+  {
+    title: "Figma Design Workflow",
+    description:
+      "A design-process visual showing how Figma layouts are translated into reusable, production-ready web sections.",
+    image: "/assets/figma.png",
+  },
+  {
+    title: "Version Control Flow",
+    description:
+      "A project-support visual representing GitHub workflow, collaboration, and maintainable delivery history.",
+    image: "/assets/github.png",
+  },
+  {
+    title: "Brand System",
+    description:
+      "A compact brand asset presentation using the Grafikwork identity as the foundation for digital consistency.",
+    image: "/assets/logo-large.png",
+  },
+  {
+    title: "Programming Landing Visual",
+    description:
+      "A full-width digital hero image suitable for portfolios, technology pages, and campaign landing pages.",
+    image: "/assets/hero-programming.jpg",
+  },
+  {
+    title: "〽️Programming Landing Visual",
+    description:
+      "A full-width digital hero image suitable for portfolios, technology pages, and campaign landing pages.",
+    image: "/assets/hero-programming.jpg",
+  },
+];
+
+const visibleCount = 4;
+
+export default function PortfolioCarousel() {
+  const [startIndex, setStartIndex] = useState(0);
+  const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
+
+  const visibleItems = useMemo(
+    () => portfolioItems.slice(startIndex, startIndex + visibleCount),
+    [startIndex],
+  );
+
+  const canGoPrevious = startIndex > 0;
+  const canGoNext = startIndex + visibleCount < portfolioItems.length;
+
+  function showPrevious() {
+    setStartIndex((current) => Math.max(0, current - visibleCount));
+  }
+
+  function showNext() {
+    debugger;
+    setStartIndex((current) => {
+      console.log(current, "⛔");
+      return Math.min(
+        portfolioItems.length - visibleCount,
+        current + visibleCount,
+      );
+    });
+  }
+
+  return (
+    <div className="relative mx-auto max-w-[1120px]">
+      <div className="mb-6 flex items-center justify-end gap-3">
+        {canGoPrevious ? (
+          <button
+            className="flex h-11 w-11 items-center justify-center rounded-md border border-black/10 bg-white text-2xl font-black text-[#0d063f] shadow-sm transition hover:border-cyan-400 hover:text-cyan-500"
+            type="button"
+            aria-label="Show previous portfolio images"
+            onClick={showPrevious}
+          >
+            &lt;
+          </button>
+        ) : null}
+        {canGoNext ? (
+          <button
+            className="flex h-11 w-11 items-center justify-center rounded-md border border-black/10 bg-white text-2xl font-black text-[#0d063f] shadow-sm transition hover:border-cyan-400 hover:text-cyan-500"
+            type="button"
+            aria-label="Show next portfolio images"
+            onClick={showNext}
+          >
+            &gt;
+          </button>
+        ) : null}
+      </div>
+
+      <div className="grid grid-cols-4 gap-5 max-[1000px]:grid-cols-2 max-[560px]:grid-cols-1">
+        {visibleItems.map((item) => (
+          <button
+            className="group overflow-hidden rounded-lg bg-white text-left shadow-[0_16px_40px_rgba(13,6,63,0.1)] transition hover:-translate-y-1 hover:shadow-[0_22px_58px_rgba(13,6,63,0.16)]"
+            key={item.title}
+            type="button"
+            onClick={() => setSelectedItem(item)}
+          >
+            <span className="relative block aspect-[4/3] bg-[#0d063f]">
+              <Image
+                className="object-cover transition duration-300 group-hover:scale-105"
+                src={item.image}
+                alt={item.title}
+                fill
+                sizes="(max-width: 560px) 100vw, (max-width: 1000px) 50vw, 25vw"
+              />
+              <span className="absolute inset-0 bg-gradient-to-t from-[#0d063f]/45 to-transparent opacity-60" />
+            </span>
+            <span className="block p-4">
+              <span className="block text-base font-black text-[#18191f]">
+                {item.title}
+              </span>
+              <span className="mt-2 line-clamp-2 block text-sm leading-6 text-[#6f7280]">
+                {item.description}
+              </span>
+            </span>
+          </button>
+        ))}
+      </div>
+
+      {selectedItem ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#07041c]/80 px-4 py-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedItem.title} portfolio details`}
+          onClick={() => setSelectedItem(null)}
+        >
+          <div
+            className="grid max-h-[92vh] w-full max-w-[980px] overflow-hidden rounded-lg bg-white shadow-[0_28px_90px_rgba(0,0,0,0.35)] md:grid-cols-[1.2fr_0.8fr]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="relative min-h-[300px] bg-[#0d063f] md:min-h-[560px]">
+              <Image
+                className="object-cover"
+                src={selectedItem.image}
+                alt={selectedItem.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 60vw"
+              />
+            </div>
+            <div className="relative flex flex-col justify-center p-7 md:p-10">
+              <button
+                className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-md bg-[#f1f1f1] text-xl font-black text-[#0d063f] transition hover:bg-cyan-100"
+                type="button"
+                aria-label="Close portfolio detail"
+                onClick={() => setSelectedItem(null)}
+              >
+                x
+              </button>
+              <p className="mb-3 text-xs font-extrabold uppercase text-cyan-500">
+                Portfolio
+              </p>
+              <h3 className="mb-4 text-[clamp(1.8rem,4vw,3.2rem)] font-black leading-none text-[#11152b]">
+                {selectedItem.title}
+              </h3>
+              <p className="text-base leading-7 text-[#6f7280]">
+                {selectedItem.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : null}
+    </div>
+  );
+}
