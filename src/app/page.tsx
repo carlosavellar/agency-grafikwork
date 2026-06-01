@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Header from "./Header";
 import PortfolioCarousel from "./PortfolioCarousel";
 
 const tools = [
@@ -60,48 +61,11 @@ const primaryButtonClass =
 export default function Home() {
   return (
     <main className="bg-[#f6f8fb] text-[#18191f]">
-      <header className="fixed inset-x-0 top-0 z-10 flex items-center justify-between gap-8 bg-[#0d063f]/95 px-[clamp(18px,5vw,72px)] py-4 max-[900px]:items-start max-[900px]:flex-col max-[900px]:gap-3.5 max-[560px]:px-4">
-        <a className="shrink-0" href="#home" aria-label="Grafikwork home">
-          <Image
-            className="h-auto w-[clamp(138px,18vw,192px)]"
-            src="/assets/logo.png"
-            alt="Grafikwork"
-            width={192}
-            height={58}
-            priority
-          />
-        </a>
-        <nav
-          className="flex flex-wrap items-center justify-end gap-[clamp(14px,3vw,34px)] text-sm font-bold text-white max-[900px]:justify-start max-[560px]:gap-3 max-[560px]:text-xs"
-          aria-label="Main navigation"
-        >
-          <a
-            className="opacity-80 transition hover:opacity-100"
-            href="#services"
-          >
-            Servicos
-          </a>
-          <a className="opacity-80 transition hover:opacity-100" href="#tools">
-            Ferramentas
-          </a>
-          <a className="opacity-80 transition hover:opacity-100" href="#about">
-            About
-          </a>
-          <a className="opacity-80 transition hover:opacity-100" href="#work">
-            Work
-          </a>
-          <a
-            className="opacity-80 transition hover:opacity-100"
-            href="#contact"
-          >
-            Contact
-          </a>
-        </nav>
-      </header>
+      <Header />
 
       <section
         id="home"
-        className="relative flex min-h-[min(760px,92vh)] items-end overflow-hidden px-[clamp(22px,7vw,96px)] pb-18 pt-40 max-[900px]:min-h-[760px] max-[900px]:pt-52 max-[560px]:min-h-[720px] max-[560px]:px-4 max-[560px]:pb-12 max-[560px]:pt-48"
+        className="relative flex min-h-[min(760px,92vh)] items-end overflow-hidden px-[clamp(22px,7vw,96px)] pb-18 pt-[clamp(64px,9vw,112px)] max-[900px]:min-h-[760px] max-[560px]:min-h-[720px] max-[560px]:px-4 max-[560px]:pb-12 max-[560px]:pt-16"
       >
         <Image
           className="object-cover"
