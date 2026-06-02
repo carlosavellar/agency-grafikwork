@@ -81,7 +81,7 @@ export default function Home() {
         <div className="relative z-[1] mx-auto grid w-full max-w-[1080px] grid-cols-[minmax(0,620px)_minmax(280px,380px)] items-center justify-center gap-[clamp(28px,5vw,58px)] max-[900px]:grid-cols-1 max-[900px]:items-start max-[560px]:gap-5">
           <div id="hero" className="max-w-[690px] text-white">
             <p className={eyebrowClass}>Creative development portfolio</p>
-            <h1 className="mb-5 text-[clamp(2.45rem,6vw,5.6rem)] font-bold leading-[0.95] max-[560px]:mb-2 max-[560px]:text-[1.75rem]">
+            <h1 className="mb-5 text-[clamp(2.45rem,6vw,4.6rem)] font-bold leading-[0.95] max-[560px]:mb-2 max-[560px]:text-[1.75rem]">
               Desenvolvimento Front-end
             </h1>
             <p className="max-w-[620px] text-[clamp(1rem,1.6vw,1.18rem)] leading-7 text-white/80 max-[560px]:text-xs max-[560px]:leading-5">
