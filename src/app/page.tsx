@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Header from "./Header";
 import PortfolioCarousel from "./PortfolioCarousel";
+import Link from "next/link";
 
 const tools = [
   {
@@ -53,7 +54,7 @@ const stats = [
 ];
 
 const eyebrowClass =
-  "mb-3 text-xs font-extrabold uppercase tracking-normal text-cyan-400";
+  "mb-3 text-xs font-extrabold uppercase tracking-wider text-cyan-400";
 const sectionClass = "px-[clamp(22px,7vw,96px)] py-[clamp(64px,9vw,128px)]";
 const primaryButtonClass =
   "inline-flex min-w-32 justify-center rounded-md bg-gradient-to-br from-cyan-400 to-lime-300 px-5 py-3.5 text-sm font-extrabold text-slate-950";
@@ -65,7 +66,7 @@ export default function Home() {
 
       <section
         id="home"
-        className="relative flex min-h-[min(760px,92vh)] items-end overflow-hidden px-[clamp(22px,7vw,96px)] pb-18 pt-[clamp(64px,9vw,112px)] max-[900px]:min-h-[760px] max-[560px]:min-h-[720px] max-[560px]:px-4 max-[560px]:pb-12 max-[560px]:pt-16"
+        className="relative flex min-h-[min(760px,92vh)] items-end overflow-hidden px-[clamp(22px,7vw,96px)] pb-18 pt-[clamp(64px,9vw,112px)] max-[900px]:min-h-[480px] max-[560px]:min-h-[380px] max-[560px]:px-4 max-[560px]:pb-5 max-[560px]:pt-6"
       >
         <Image
           className="object-cover"
@@ -78,14 +79,14 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#09042b]/85 via-[#120650]/50 to-[#09042b]/30" />
         <div className="relative z-[1] max-w-[690px] text-white">
           <p className={eyebrowClass}>Creative development portfolio</p>
-          <h1 className="mb-5 text-[clamp(2.45rem,6vw,5.6rem)] font-bold leading-[0.95]">
+          <h1 className="mb-5 text-[clamp(2.45rem,6vw,5.6rem)] font-bold leading-[0.95] max-[560px]:mb-2 max-[560px]:text-[1.75rem]">
             Desenvolvimento Front-end
           </h1>
-          <p className="max-w-[620px] text-[clamp(1rem,1.6vw,1.18rem)] leading-7 text-white/80">
+          <p className="max-w-[620px] text-[clamp(1rem,1.6vw,1.18rem)] leading-7 text-white/80 max-[560px]:text-xs max-[560px]:leading-5">
             A Grafikwork é uma empresa especializada em desenvolvimento
             Front-end, com forte atuação na criação de interfaces modernas,
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-3.5 max-[560px]:flex-col max-[560px]:items-stretch">
+          <div className="mt-6 flex flex-wrap items-center gap-3.5 max-[560px]:mt-2 max-[560px]:flex-col max-[560px]:items-stretch">
             <a className={primaryButtonClass} href="#work">
               Portfólio
             </a>
@@ -149,7 +150,7 @@ export default function Home() {
                 <h3 className="mb-4 text-lg font-black leading-none">
                   {service.title}
                 </h3>
-                <p className="mx-auto max-w-[210px] text-xs leading-6 text-white/70">
+                <p className="mx-auto max-w-[210px] text-xs leading-6 text-white/70 tracking-wider leading-normal">
                   {service.body}
                 </p>
               </div>
@@ -188,15 +189,20 @@ export default function Home() {
             front-end, testes e produção. Nosso objetivo desenvolver aplicações
             que agreguem valores para sua empresa, projeto, prtoduto.
           </p>
-          <div className="mt-7 grid grid-cols-3 gap-4 border-t border-black/10 pt-6 max-[560px]:grid-cols-1">
-            {stats.map(([value, label]) => (
-              <div key={label}>
-                <strong className="block text-[clamp(1.7rem,4vw,3rem)] font-bold">
-                  {value}
-                </strong>
-                <span className="text-sm text-[#6f7280]">{label}</span>
-              </div>
-            ))}
+          <div className="mt-7 grid grid-cols-2 gap-4 border-t border-black/10 pt-6 max-[560px]:grid-cols-1">
+            <span>
+              José Carlos /{" "}
+              <span className="text-[#8A8B8D]">Developer & Designer</span>
+            </span>
+            <span>
+              <Link
+                href="https://www.linkedin.com/in/carlossantosjose/"
+                target="_blank"
+                className="text-sky-700 italic linkedin text-xs font-semibold tracking-wide"
+              >
+                Linkedin
+              </Link>
+            </span>
           </div>
         </div>
       </section>
@@ -255,16 +261,16 @@ export default function Home() {
         className="flex items-center justify-between gap-3.5 bg-[#0d063f] px-[clamp(22px,7vw,96px)] py-14 text-white max-[560px]:flex-col max-[560px]:items-stretch"
       >
         <div>
-          <p className={eyebrowClass}>Available for work</p>
+          <p className={eyebrowClass}>Lets play</p>
           <h2 className="mb-0 max-w-[760px] text-[clamp(1.8rem,3.5vw,3rem)] font-bold leading-none">
-            Let&apos;s build the next version of your web presence.
+            Vamos criar a sua poxima versão de3 presença na web
           </h2>
         </div>
         <a
           className={`${primaryButtonClass} max-[560px]:w-full`}
           href="mailto:hello@grafikwork.dev"
         >
-          Contact Me
+          Contato
         </a>
       </section>
 
@@ -278,7 +284,7 @@ export default function Home() {
         />
         <div className="flex items-center gap-5">
           <a className="text-sm font-bold text-white/80" href="#home">
-            Back to top
+            Voltar para o topo
           </a>
           <a href="https://github.com" aria-label="GitHub">
             <Image src="/assets/github.png" alt="" width={22} height={22} />

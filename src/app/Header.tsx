@@ -6,9 +6,9 @@ import { useState } from "react";
 const navLinks = [
   ["Servicos", "#services"],
   ["Ferramentas", "#tools"],
-  ["About", "#about"],
+  ["Sobre", "#about"],
   ["Work", "#work"],
-  ["Contact", "#contact"],
+  ["Contato", "#contact"],
 ];
 
 export default function Header() {
