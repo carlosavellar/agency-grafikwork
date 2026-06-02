@@ -101,7 +101,7 @@ img {
   height: var(--phase-line-height);
   line-height: var(--phase-line-height);
   margin: 0;
-  opacity: 0.7;
+  opacity: 0.4;
   overflow: hidden;
   padding-left: clamp(38px, 5vw, 58px);
   text-overflow: ellipsis;

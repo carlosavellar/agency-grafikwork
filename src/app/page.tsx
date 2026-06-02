@@ -67,38 +67,38 @@ export default function Home() {
 
       <section
         id="home"
-        className="relative flex min-h-[min(760px,92vh)] items-end overflow-hidden px-[clamp(22px,7vw,96px)] pb-18 pt-[clamp(64px,9vw,112px)] max-[900px]:min-h-[540px] max-[560px]:min-h-[520px] max-[560px]:px-4 max-[560px]:pb-5 max-[560px]:pt-6"
+        className="relative flex min-h-[min(760px,92vh)] items-center overflow-hidden px-[clamp(22px,7vw,96px)] py-[clamp(86px,10vw,132px)] max-[900px]:min-h-[540px] max-[560px]:min-h-[520px] max-[560px]:px-4 max-[560px]:py-8"
       >
         <Image
           className="object-cover"
-          src="/assets/hero-programming.jpg"
+          src="/assets/imagem-HIRO-animated.svg"
           alt=""
           fill
           sizes="100vw"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#09042b]/85 via-[#120650]/50 to-[#09042b]/30" />
-        <div className="relative z-[1] grid w-full grid-cols-[minmax(0,690px)_minmax(280px,420px)] items-end justify-between gap-[clamp(34px,7vw,92px)] max-[900px]:grid-cols-1 max-[900px]:items-start max-[560px]:gap-5">
+        <div className="relative z-[1] mx-auto grid w-full max-w-[1080px] grid-cols-[minmax(0,620px)_minmax(280px,380px)] items-center justify-center gap-[clamp(28px,5vw,58px)] max-[900px]:grid-cols-1 max-[900px]:items-start max-[560px]:gap-5">
           <div id="hero" className="max-w-[690px] text-white">
-          <p className={eyebrowClass}>Creative development portfolio</p>
-          <h1 className="mb-5 text-[clamp(2.45rem,6vw,5.6rem)] font-bold leading-[0.95] max-[560px]:mb-2 max-[560px]:text-[1.75rem]">
-            Desenvolvimento Front-end
-          </h1>
-          <p className="max-w-[620px] text-[clamp(1rem,1.6vw,1.18rem)] leading-7 text-white/80 max-[560px]:text-xs max-[560px]:leading-5">
-            A Grafikwork é uma empresa especializada em desenvolvimento
-            Front-end, com forte atuação na criação de interfaces modernas,
-          </p>
-          <div className="mt-6 flex flex-wrap items-center gap-3.5 max-[560px]:mt-2 max-[560px]:flex-col max-[560px]:items-stretch">
-            <a className={primaryButtonClass} href="#work">
-              Portfólio
-            </a>
-            <a
-              className="inline-flex min-w-32 justify-center rounded-md border border-white/40 px-5 py-3.5 text-sm font-extrabold text-white max-[560px]:w-full"
-              href="#contact"
-            >
-              Seu próximo projeto
-            </a>
-          </div>
+            <p className={eyebrowClass}>Creative development portfolio</p>
+            <h1 className="mb-5 text-[clamp(2.45rem,6vw,5.6rem)] font-bold leading-[0.95] max-[560px]:mb-2 max-[560px]:text-[1.75rem]">
+              Desenvolvimento Front-end
+            </h1>
+            <p className="max-w-[620px] text-[clamp(1rem,1.6vw,1.18rem)] leading-7 text-white/80 max-[560px]:text-xs max-[560px]:leading-5">
+              A Grafikwork é uma empresa especializada em desenvolvimento
+              Front-end, com forte atuação na criação de interfaces modernas,
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-3.5 max-[560px]:mt-2 max-[560px]:flex-col max-[560px]:items-stretch">
+              <a className={primaryButtonClass} href="#work">
+                Portfólio
+              </a>
+              <a
+                className="inline-flex min-w-32 justify-center rounded-md border border-white/40 px-5 py-3.5 text-sm font-extrabold text-white max-[560px]:w-full"
+                href="#contact"
+              >
+                Seu próximo projeto
+              </a>
+            </div>
           </div>
           <PhaseReel />
         </div>
