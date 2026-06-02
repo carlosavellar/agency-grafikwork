@@ -15,55 +15,25 @@ const portfolioItems: PortfolioItem[] = [
     title: "Developer Portfolio Hero",
     description:
       "A bold programming-themed landing section with strong visual hierarchy, responsive spacing, and a clear project call to action.",
-    image: "/assets/hero-card.jpg",
+    image: "/assets/copes-empresarial.png",
   },
   {
     title: "UX/UI Service Layout",
     description:
       "A service card concept focused on interface design, using a compact card structure and clear visual iconography.",
-    image: "/assets/servicos-ux-ui.jpg",
+    image: "/assets/montessori.png",
   },
   {
     title: "Frontend System",
     description:
       "A frontend presentation card using React and Next.js patterns to communicate modern implementation work.",
-    image: "/assets/react.png",
+    image: "/assets/soltec.png",
   },
   {
     title: "Web Development Card",
     description:
       "A polished service visual for code-focused projects, built to sit cleanly inside responsive portfolio grids.",
-    image: "/assets/web-dev.png",
-  },
-  {
-    title: "Figma Design Workflow",
-    description:
-      "A design-process visual showing how Figma layouts are translated into reusable, production-ready web sections.",
-    image: "/assets/figma.png",
-  },
-  {
-    title: "Version Control Flow",
-    description:
-      "A project-support visual representing GitHub workflow, collaboration, and maintainable delivery history.",
-    image: "/assets/github.png",
-  },
-  {
-    title: "Brand System",
-    description:
-      "A compact brand asset presentation using the Grafikwork identity as the foundation for digital consistency.",
-    image: "/assets/logo-large.png",
-  },
-  {
-    title: "Programming Landing Visual",
-    description:
-      "A full-width digital hero image suitable for portfolios, technology pages, and campaign landing pages.",
-    image: "/assets/hero-programming.jpg",
-  },
-  {
-    title: "Programming Landing Visual II",
-    description:
-      "A full-width digital hero image suitable for portfolios, technology pages, and campaign landing pages.",
-    image: "/assets/hero-programming.jpg",
+    image: "/assets/casa-da-uniao.png",
   },
 ];
 
