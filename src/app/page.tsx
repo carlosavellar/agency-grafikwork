@@ -2,6 +2,7 @@ import Image from "next/image";
 import Header from "./Header";
 import PortfolioCarousel from "./PortfolioCarousel";
 import Link from "next/link";
+import PhaseReel from "./PhaseReel";
 
 const tools = [
   {
@@ -66,7 +67,7 @@ export default function Home() {
 
       <section
         id="home"
-        className="relative flex min-h-[min(760px,92vh)] items-end overflow-hidden px-[clamp(22px,7vw,96px)] pb-18 pt-[clamp(64px,9vw,112px)] max-[900px]:min-h-[480px] max-[560px]:min-h-[380px] max-[560px]:px-4 max-[560px]:pb-5 max-[560px]:pt-6"
+        className="relative flex min-h-[min(760px,92vh)] items-end overflow-hidden px-[clamp(22px,7vw,96px)] pb-18 pt-[clamp(64px,9vw,112px)] max-[900px]:min-h-[540px] max-[560px]:min-h-[520px] max-[560px]:px-4 max-[560px]:pb-5 max-[560px]:pt-6"
       >
         <Image
           className="object-cover"
@@ -77,7 +78,8 @@ export default function Home() {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#09042b]/85 via-[#120650]/50 to-[#09042b]/30" />
-        <div className="relative z-[1] max-w-[690px] text-white">
+        <div className="relative z-[1] grid w-full grid-cols-[minmax(0,690px)_minmax(280px,420px)] items-end justify-between gap-[clamp(34px,7vw,92px)] max-[900px]:grid-cols-1 max-[900px]:items-start max-[560px]:gap-5">
+          <div id="hero" className="max-w-[690px] text-white">
           <p className={eyebrowClass}>Creative development portfolio</p>
           <h1 className="mb-5 text-[clamp(2.45rem,6vw,5.6rem)] font-bold leading-[0.95] max-[560px]:mb-2 max-[560px]:text-[1.75rem]">
             Desenvolvimento Front-end
@@ -97,6 +99,8 @@ export default function Home() {
               Seu próximo projeto
             </a>
           </div>
+          </div>
+          <PhaseReel />
         </div>
       </section>
 
