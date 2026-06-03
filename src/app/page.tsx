@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Header from "./Header";
+import HeroBackground from "./HeroBackground";
 import PortfolioCarousel from "./PortfolioCarousel";
 import Link from "next/link";
 import PhaseReel from "./PhaseReel";
@@ -69,14 +70,7 @@ export default function Home() {
         id="home"
         className="relative flex min-h-[min(760px,92vh)] items-center overflow-hidden px-[clamp(22px,7vw,96px)] py-[clamp(86px,10vw,132px)] max-[900px]:min-h-[540px] max-[560px]:min-h-[520px] max-[560px]:px-4 max-[560px]:py-8"
       >
-        <Image
-          className="object-cover"
-          src="/assets/imagem-HIRO-animated.svg"
-          alt=""
-          fill
-          sizes="100vw"
-          priority
-        />
+        <HeroBackground />
         <div className="absolute inset-0 bg-gradient-to-r from-[#09042b]/85 via-[#120650]/50 to-[#09042b]/30" />
         <div className="relative z-[1] mx-auto grid w-full max-w-[1080px] grid-cols-[minmax(0,620px)_minmax(280px,380px)] items-center justify-center gap-[clamp(28px,5vw,58px)] max-[900px]:grid-cols-1 max-[900px]:items-start max-[560px]:gap-5">
           <div id="hero" className="max-w-[690px] text-white">
