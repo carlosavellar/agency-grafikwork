@@ -170,7 +170,7 @@ export default function Home() {
         <div className="relative aspect-[3/4] overflow-hidden rounded-lg max-[900px]:max-w-[420px]">
           <Image
             className="object-cover"
-            src="/assets/profile-large.jpg"
+            src="/assets/about-image.png"
             alt="Grafikwork profile portrait"
             fill
             sizes="(max-width: 800px) 90vw, 420px"
@@ -181,13 +181,16 @@ export default function Home() {
           <h2 className="mb-5 text-[clamp(2rem,4vw,3.5rem)] font-bold leading-none">
             Excelência em desenvolvimento
           </h2>
-          <p className="leading-7 text-[#6f7280]">
+          <p id="foto-text" className="leading-7 text-[#6f7280]">
             Empresa com mais de 25 anos de experiência em projetos de aplicações
             web e mobile, do planejamento, desenvolvimento, design UX/UI,
             front-end, testes e produção. Nosso objetivo desenvolver aplicações
             que agreguem valores para sua empresa, projeto, prtoduto.
           </p>
-          <div className="mt-7 grid grid-cols-2 gap-4 border-t border-black/10 pt-6 max-[560px]:grid-cols-1">
+          <div
+            id="foto"
+            className="mt-7 grid grid-cols-2 gap-4 border-t border-black/10 pt-6 max-[560px]:grid-cols-1"
+          >
             <span>
               José Carlos /{" "}
               <span className="text-[#8A8B8D]">Developer & Designer</span>
