@@ -69,13 +69,13 @@ img {
 }
 
 .phase-reel::after {
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     rgba(9, 4, 43, 0.45),
     rgba(9, 4, 43, 0) 24%,
     rgba(9, 4, 43, 0) 76%,
     rgba(9, 4, 43, 0.45)
-  );
+  ); */
   content: "";
   inset: 0;
   pointer-events: none;
