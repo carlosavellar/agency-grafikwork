@@ -264,12 +264,22 @@ export default function Home() {
             Vamos criar a sua poxima versão de3 presença na web
           </h2>
         </div>
-        <a
-          className={`${primaryButtonClass} max-[560px]:w-full`}
-          href="mailto:hello@grafikwork.dev"
-        >
-          Contato
-        </a>
+        <div className="flex flex-wrap gap-3 max-[560px]:flex-col">
+          <a
+            className={`${primaryButtonClass} max-[560px]:w-full`}
+            href="mailto:hello@grafikwork.dev"
+          >
+            Contato
+          </a>
+          <a
+            className="inline-flex min-w-32 justify-center rounded-md border border-white/40 px-5 py-3.5 text-sm font-extrabold text-white transition hover:border-lime-300 hover:text-lime-200 max-[560px]:w-full"
+            href="https://wa.me/5511976610711"
+            target="_blank"
+            rel="noreferrer"
+          >
+            WhatsApp
+          </a>
+        </div>
       </section>
 
       <footer className="flex items-center justify-between gap-6 bg-[#07041c] px-[clamp(22px,7vw,96px)] py-6 text-white max-[560px]:items-start max-[560px]:flex-col">
