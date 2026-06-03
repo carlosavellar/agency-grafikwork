@@ -171,7 +171,7 @@ export default function Home() {
 
       <section
         id="about"
-        className={`${sectionClass} grid grid-cols-[minmax(260px,420px)_minmax(0,1fr)] items-center gap-[clamp(34px,6vw,82px)] bg-white max-[900px]:grid-cols-1`}
+        className={`${sectionClass} grid grid-cols-[minmax(260px,420px)_minmax(0,660px)] items-center justify-center gap-[clamp(34px,6vw,82px)] bg-white max-[900px]:grid-cols-1`}
       >
         <div className="relative aspect-[3/4] overflow-hidden rounded-lg max-[900px]:max-w-[420px]">
           <Image
