@@ -126,6 +126,7 @@ export default function PortfolioCarousel() {
 
       {selectedItem ? (
         <div
+          id="modal-port"
           className="fixed inset-0 z-50 flex items-center justify-center bg-[#07041c]/80 px-4 py-8"
           role="dialog"
           aria-modal="true"
@@ -136,13 +137,14 @@ export default function PortfolioCarousel() {
             className="grid max-h-[92vh] w-full max-w-[980px] overflow-hidden rounded-lg bg-white shadow-[0_28px_90px_rgba(0,0,0,0.35)] md:grid-cols-[1.2fr_0.8fr]"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="relative min-h-[300px] bg-[#0d063f] md:min-h-[560px]">
-              <Image
-                className="object-cover"
+            <div
+              id="scrollbar2"
+              className="modal-port__image-scroll max-h-[62vh] overflow-y-auto bg-[#0d063f] p-2 md:max-h-[92vh]"
+            >
+              <img
+                className="h-auto w-full"
                 src={selectedItem.image}
                 alt={selectedItem.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 60vw"
               />
             </div>
             <div className="relative flex flex-col justify-center p-7 md:p-10">

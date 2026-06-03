@@ -4,19 +4,19 @@ import { useEffect, useMemo, useState } from "react";
 import type { CSSProperties } from "react";
 
 const phrases = [
-  "Plan user flows",
-  "Map product goals",
+  "Planejamento do fluxo do usuário",
   "Sketch page structure",
   "Design responsive layouts",
-  "Build React interfaces",
-  "Craft clean components",
-  "Connect live APIs",
-  "Optimize loading speed",
-  "Test every viewport",
-  "Refine interaction states",
-  "Polish visual details",
-  "Deploy stable releases",
-  "Measure user behavior",
+  "React interfaces",
+  "Design  nuclear",
+  "Componentização",
+  "Rest API",
+  "Otimização de performance",
+  "Testest automatizados",
+  "Banco de dados",
+  "UX/UI",
+  "Deploy",
+  "Teste de usabilidade",
   "Improve next sprint",
 ];
 
