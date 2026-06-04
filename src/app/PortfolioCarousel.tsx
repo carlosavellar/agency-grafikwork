@@ -3,6 +3,7 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
 import { useState } from "react";
+import { assetPath } from "./assetPath";
 
 type PortfolioItem = {
   title: string;
@@ -15,25 +16,25 @@ const portfolioItems: PortfolioItem[] = [
     title: "Developer Portfolio Hero",
     description:
       "A bold programming-themed landing section with strong visual hierarchy, responsive spacing, and a clear project call to action.",
-    image: "/assets/copes-empresarial.png",
+    image: assetPath("/assets/copes-empresarial.png"),
   },
   {
     title: "UX/UI Service Layout",
     description:
       "A service card concept focused on interface design, using a compact card structure and clear visual iconography.",
-    image: "/assets/montessori.png",
+    image: assetPath("/assets/montessori.png"),
   },
   {
     title: "Frontend System",
     description:
       "A frontend presentation card using React and Next.js patterns to communicate modern implementation work.",
-    image: "/assets/soltec.png",
+    image: assetPath("/assets/soltec.png"),
   },
   {
     title: "Web Development Card",
     description:
       "A polished service visual for code-focused projects, built to sit cleanly inside responsive portfolio grids.",
-    image: "/assets/casa-da-uniao.png",
+    image: assetPath("/assets/casa-da-uniao.png"),
   },
 ];
 

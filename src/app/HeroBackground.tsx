@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { assetPath } from "./assetPath";
 
 const heroImages = [
-  "/assets/imagem-HIRO-animated.svg",
-  "/assets/hero-2.jpg",
-  "/assets/hero-3.jpg",
+  assetPath("/assets/imagem-HIRO-animated.svg"),
+  assetPath("/assets/hero-2.jpg"),
+  assetPath("/assets/hero-3.jpg"),
 ];
 
 const rotationInterval = 15 * 1000;

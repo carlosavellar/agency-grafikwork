@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { assetPath } from "./assetPath";
 
 const navLinks = [
   ["Servicos", "#services"],
@@ -20,7 +21,7 @@ export default function Header() {
         <a className="shrink-0" href="#home" aria-label="Grafikwork home">
           <Image
             className="h-auto w-[clamp(138px,18vw,192px)]"
-            src="/assets/logo.png"
+            src={assetPath("/assets/logo.png")}
             alt="Grafikwork"
             width={192}
             height={58}

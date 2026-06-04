@@ -4,27 +4,28 @@ import HeroBackground from "./HeroBackground";
 import PortfolioCarousel from "./PortfolioCarousel";
 import Link from "next/link";
 import PhaseReel from "./PhaseReel";
+import { assetPath } from "./assetPath";
 
 const tools = [
   {
     title: "Frameworks e Bibliotecas",
     body: "Utilizamos bibliotecas que permitem a melhor manutenibilidade, escalabilidade e performance.",
-    image: "/assets/react.png",
+    image: assetPath("/assets/react.png"),
   },
   {
     title: "Clean code",
     body: "Desenvolvemos softwares que sao faceis de ler, manter e escalar.",
-    image: "/assets/web-dev.png",
+    image: assetPath("/assets/web-dev.png"),
   },
   {
     title: "Design",
     body: "Utilizamos ferramentas que permitem criar interfaces claras, consistentes e prontas para evoluir.",
-    image: "/assets/figma.png",
+    image: assetPath("/assets/figma.png"),
   },
   {
     title: "Versionamento",
     body: "Organizamos entregas com controle de versao, colaboracao e historico claro de desenvolvimento.",
-    image: "/assets/github.png",
+    image: assetPath("/assets/github.png"),
   },
 ];
 
@@ -101,7 +102,7 @@ export default function Home() {
       <section id="services" className={`${sectionClass} bg-[#f1f1f1]`}>
         <Image
           className="decor-dots decor-dots--blue decor-dots--services"
-          src="/assets/services-square-dotted.svg"
+          src={assetPath("/assets/services-square-dotted.svg")}
           alt=""
           width={420}
           height={420}
@@ -126,7 +127,7 @@ export default function Home() {
                 {service.visual === "ux" ? (
                   <Image
                     className="h-24 w-24 object-contain"
-                    src="/assets/ux-ui.png"
+                    src={assetPath("/assets/ux-ui.png")}
                     alt=""
                     width={96}
                     height={96}
@@ -178,7 +179,7 @@ export default function Home() {
         <div className="relative w-full max-[900px]:max-w-[420px]">
           <Image
             className="decor-dots decor-dots--blue decor-dots--about"
-            src="/assets/layout-square-dotted.png"
+            src={assetPath("/assets/layout-square-dotted.png")}
             alt=""
             width={210}
             height={210}
@@ -187,7 +188,7 @@ export default function Home() {
           <div className="relative z-[1] aspect-[3/4] overflow-hidden rounded-lg">
             <Image
               className="object-cover"
-              src="/assets/about-image.png"
+              src={assetPath("/assets/about-image.png")}
               alt="Grafikwork profile portrait"
               fill
               sizes="(max-width: 800px) 90vw, 420px"
@@ -211,7 +212,7 @@ export default function Home() {
           >
             <Image
               className="row-span-2 h-20 w-20 rounded-full object-cover ring-2 ring-[#2b7cf6]/20"
-              src="/assets/jose-carlos-avatar.jpg"
+              src={assetPath("/assets/jose-carlos-avatar.jpg")}
               alt="José Carlos"
               width={80}
               height={80}
@@ -236,7 +237,7 @@ export default function Home() {
       <section id="work" className={`${sectionClass} bg-[#f4f5f9]`}>
         <Image
           className="decor-dots decor-dots--blue decor-dots--work"
-          src="/assets/layout-dotted.png"
+          src={assetPath("/assets/layout-dotted.png")}
           alt=""
           width={210}
           height={210}
@@ -257,7 +258,7 @@ export default function Home() {
       <section id="tools" className={`${sectionClass} bg-white`}>
         <Image
           className="decor-dots decor-dots--blue decor-dots--tools"
-          src="/assets/layout-square-dotted.png"
+          src={assetPath("/assets/layout-square-dotted.png")}
           alt=""
           width={190}
           height={190}
@@ -329,7 +330,7 @@ export default function Home() {
       <footer className="flex items-center justify-between gap-6 bg-[#07041c] px-[clamp(22px,7vw,96px)] py-6 text-white max-[560px]:items-start max-[560px]:flex-col">
         <Image
           className="h-auto"
-          src="/assets/logo.png"
+          src={assetPath("/assets/logo.png")}
           alt="Grafikwork"
           width={160}
           height={48}
@@ -339,7 +340,12 @@ export default function Home() {
             Voltar para o topo
           </a>
           <a href="https://github.com" aria-label="GitHub">
-            <Image src="/assets/github.png" alt="" width={22} height={22} />
+            <Image
+              src={assetPath("/assets/github.png")}
+              alt=""
+              width={22}
+              height={22}
+            />
           </a>
         </div>
       </footer>
