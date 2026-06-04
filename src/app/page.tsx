@@ -99,6 +99,14 @@ export default function Home() {
       </section>
 
       <section id="services" className={`${sectionClass} bg-[#f1f1f1]`}>
+        <Image
+          className="decor-dots decor-dots--blue decor-dots--services"
+          src="/assets/services-square-dotted.svg"
+          alt=""
+          width={420}
+          height={420}
+          aria-hidden="true"
+        />
         <div className="mx-auto mb-[clamp(34px,6vw,54px)] max-w-[520px] text-center">
           <p className="mb-2 text-[0.66rem] font-black uppercase text-[#2b7cf6]">
             Nossos servicos
@@ -167,14 +175,24 @@ export default function Home() {
         id="about"
         className={`${sectionClass} grid grid-cols-[minmax(260px,420px)_minmax(0,660px)] items-center justify-center gap-[clamp(34px,6vw,82px)] bg-white max-[900px]:grid-cols-1`}
       >
-        <div className="relative aspect-[3/4] overflow-hidden rounded-lg max-[900px]:max-w-[420px]">
+        <div className="relative w-full max-[900px]:max-w-[420px]">
           <Image
-            className="object-cover"
-            src="/assets/about-image.png"
-            alt="Grafikwork profile portrait"
-            fill
-            sizes="(max-width: 800px) 90vw, 420px"
+            className="decor-dots decor-dots--blue decor-dots--about"
+            src="/assets/layout-square-dotted.png"
+            alt=""
+            width={210}
+            height={210}
+            aria-hidden="true"
           />
+          <div className="relative z-[1] aspect-[3/4] overflow-hidden rounded-lg">
+            <Image
+              className="object-cover"
+              src="/assets/about-image.png"
+              alt="Grafikwork profile portrait"
+              fill
+              sizes="(max-width: 800px) 90vw, 420px"
+            />
+          </div>
         </div>
         <div className="max-w-[660px]">
           <p className={eyebrowClass}>Sobre Grafikwork</p>
@@ -216,6 +234,14 @@ export default function Home() {
       </section>
 
       <section id="work" className={`${sectionClass} bg-[#f4f5f9]`}>
+        <Image
+          className="decor-dots decor-dots--blue decor-dots--work"
+          src="/assets/layout-dotted.png"
+          alt=""
+          width={210}
+          height={210}
+          aria-hidden="true"
+        />
         <div className="mx-auto mb-10 max-w-[740px] text-center">
           <p className={eyebrowClass}>Selected work</p>
           <h2 className="mb-5 text-[clamp(2rem,4vw,3rem)] font-bold leading-none">
@@ -229,6 +255,14 @@ export default function Home() {
         <PortfolioCarousel />
       </section>
       <section id="tools" className={`${sectionClass} bg-white`}>
+        <Image
+          className="decor-dots decor-dots--blue decor-dots--tools"
+          src="/assets/layout-square-dotted.png"
+          alt=""
+          width={190}
+          height={190}
+          aria-hidden="true"
+        />
         <div className="mx-auto mb-[clamp(40px,7vw,72px)] max-w-[720px] text-center">
           <p className={eyebrowClass}>Nossos servicos</p>
           <h2 className="mb-5 text-[clamp(2.1rem,4.6vw,4rem)] font-bold leading-none">
