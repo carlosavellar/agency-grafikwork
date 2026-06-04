@@ -5,6 +5,7 @@ import PortfolioCarousel from "./PortfolioCarousel";
 import Link from "next/link";
 import PhaseReel from "./PhaseReel";
 import { assetPath } from "./assetPath";
+import DottedParallax from "./DottedParallax";
 
 const tools = [
   {
@@ -65,6 +66,7 @@ const primaryButtonClass =
 export default function Home() {
   return (
     <main className="bg-[#f6f8fb] text-[#18191f]">
+      <DottedParallax />
       <Header />
 
       <section
@@ -107,6 +109,7 @@ export default function Home() {
           width={420}
           height={420}
           aria-hidden="true"
+          data-parallax-speed="0.2"
         />
         <div className="mx-auto mb-[clamp(34px,6vw,54px)] max-w-[520px] text-center">
           <p className="mb-2 text-[0.66rem] font-black uppercase text-[#2b7cf6]">
@@ -184,6 +187,7 @@ export default function Home() {
             width={210}
             height={210}
             aria-hidden="true"
+            data-parallax-speed="-0.13"
           />
           <div className="relative z-[1] aspect-[3/4] overflow-hidden rounded-lg">
             <Image
@@ -242,6 +246,7 @@ export default function Home() {
           width={210}
           height={210}
           aria-hidden="true"
+          data-parallax-speed="0.18"
         />
         <div className="mx-auto mb-10 max-w-[740px] text-center">
           <p className={eyebrowClass}>Selected work</p>
@@ -263,6 +268,7 @@ export default function Home() {
           width={190}
           height={190}
           aria-hidden="true"
+          data-parallax-speed="-0.16"
         />
         <div className="mx-auto mb-[clamp(40px,7vw,72px)] max-w-[720px] text-center">
           <p className={eyebrowClass}>Nossos servicos</p>

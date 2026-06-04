@@ -238,6 +238,9 @@ img {
   opacity: 0.85;
   pointer-events: none;
   position: absolute !important;
+  transform: translate3d(0, var(--decor-parallax-y, 0px), 0)
+    rotate(var(--decor-rotate, 0deg));
+  will-change: transform, translate;
   width: clamp(118px, 15vw, 210px);
   z-index: 0 !important;
 }
@@ -253,7 +256,7 @@ img {
 .decor-dots--about {
   right: clamp(-96px, -7vw, -58px);
   top: clamp(52px, 11vw, 118px);
-  transform: rotate(-8deg);
+  --decor-rotate: -8deg;
   width: clamp(138px, 17vw, 235px);
 }
 
@@ -269,7 +272,7 @@ img {
 .decor-dots--tools {
   right: clamp(0px, 2vw, 24px);
   top: clamp(110px, 15vw, 170px);
-  transform: rotate(6deg);
+  --decor-rotate: 6deg;
   width: clamp(108px, 13vw, 176px);
 }
 
@@ -280,23 +283,6 @@ img {
   }
   50% {
     translate: 0 -18px;
-  }
-}
-
-@supports (animation-timeline: view()) {
-  .decor-dots {
-    animation: decor-dots-scroll linear both;
-    animation-timeline: view();
-    animation-range: entry -5% exit 105%;
-  }
-}
-
-@keyframes decor-dots-scroll {
-  from {
-    translate: 0 30px;
-  }
-  to {
-    translate: 0 -34px;
   }
 }
 
