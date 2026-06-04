@@ -189,8 +189,15 @@ export default function Home() {
           </p>
           <div
             id="foto"
-            className="mt-7 grid grid-cols-2 gap-4 border-t border-black/10 pt-6 max-[560px]:grid-cols-1"
+            className="mt-7 grid grid-cols-[80px_minmax(0,1fr)] items-center gap-x-4 gap-y-2 border-t border-black/10 pt-6"
           >
+            <Image
+              className="row-span-2 h-20 w-20 rounded-full object-cover ring-2 ring-[#2b7cf6]/20"
+              src="/assets/jose-carlos-avatar.jpg"
+              alt="José Carlos"
+              width={80}
+              height={80}
+            />
             <span>
               José Carlos /{" "}
               <span className="text-[#8A8B8D]">Developer & Designer</span>
