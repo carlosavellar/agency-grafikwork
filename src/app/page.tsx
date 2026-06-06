@@ -6,6 +6,7 @@ import Link from "next/link";
 import PhaseReel from "./PhaseReel";
 import { assetPath } from "./assetPath";
 import DottedParallax from "./DottedParallax";
+import ContactSection from "./ContactSection";
 
 const tools = [
   {
@@ -305,6 +306,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <ContactSection />
+      {false ? (
       <section
         id="contact"
         className="flex items-center justify-between gap-3.5 bg-[#0d063f] px-[clamp(22px,7vw,96px)] py-14 text-white max-[560px]:flex-col max-[560px]:items-stretch"
@@ -332,6 +335,7 @@ export default function Home() {
           </a>
         </div>
       </section>
+      ) : null}
 
       <footer className="flex items-center justify-between gap-6 bg-[#07041c] px-[clamp(22px,7vw,96px)] py-6 text-white max-[560px]:items-start max-[560px]:flex-col">
         <Image

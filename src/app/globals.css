@@ -247,10 +247,10 @@ img {
 
 .decor-dots--services {
   filter: none;
-  left: max(24px, calc(50% - 540px));
+  left: max(42px, calc(50% - 500px));
   opacity: 0.82;
   top: clamp(-165px, -12vw, -88px);
-  width: clamp(260px, 32vw, 430px);
+  width: clamp(220px, 28vw, 365px);
 }
 
 .decor-dots--about {
