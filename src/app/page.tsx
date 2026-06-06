@@ -105,10 +105,10 @@ export default function Home() {
       <section id="services" className={`${sectionClass} bg-[#f1f1f1]`}>
         <Image
           className="decor-dots decor-dots--blue decor-dots--services"
-          src={assetPath("/assets/services-square-dotted.svg")}
+          src={assetPath("/assets/modern-halftone-blue.png")}
           alt=""
-          width={420}
-          height={420}
+          width={900}
+          height={900}
           aria-hidden="true"
           data-parallax-speed="0.2"
         />

@@ -248,9 +248,9 @@ img {
 .decor-dots--services {
   filter: none;
   left: max(42px, calc(50% - 500px));
-  opacity: 0.82;
-  top: clamp(-165px, -12vw, -88px);
-  width: clamp(220px, 28vw, 365px);
+  opacity: 0.72;
+  top: clamp(-128px, -9vw, -64px);
+  width: clamp(150px, 20vw, 260px);
 }
 
 .decor-dots--about {
