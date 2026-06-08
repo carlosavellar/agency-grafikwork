@@ -1,6 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
+
+const firebaseDatabaseUrl =
+  "https://grafikwork-71064-default-rtdb.firebaseio.com";
+const firebaseEndpoint = `${firebaseDatabaseUrl}/requests.json`;
+
+type SubmitState = "idle" | "submitting" | "success" | "error";
 
 const eyebrowClass =
   "mb-3 text-xs font-extrabold uppercase tracking-wider text-cyan-400";
@@ -24,6 +30,99 @@ const projectTypes = [
 
 export default function ContactSection() {
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [formValues, setFormValues] = useState({
+    name: "",
+    email: "",
+    whatsapp: "",
+    company: "",
+    projectType: "",
+    deadline: "",
+    projectDescription: "",
+    budgetRange: "",
+  });
+
+  const requiredFieldsAreFilled =
+    formValues.name.trim() !== "" &&
+    formValues.email.trim() !== "" &&
+    formValues.whatsapp.trim() !== "" &&
+    formValues.projectType.trim() !== "" &&
+    formValues.projectDescription.trim() !== "";
+
+  function handleFieldChange(
+    event: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
+  ) {
+    const { name, value } = event.target;
+    setFormValues((currentValues) => ({
+      ...currentValues,
+      [name]: value,
+    }));
+
+    if (submitState === "success" || submitState === "error") {
+      setSubmitState("idle");
+      setErrorMessage("");
+    }
+  }
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubmitState("submitting");
+    setErrorMessage("");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const attachment = formData.get("attachment");
+    const payload = {
+      name: formValues.name.trim(),
+      email: formValues.email.trim(),
+      whatsapp: formValues.whatsapp.trim(),
+      company: formValues.company.trim(),
+      projectType: formValues.projectType.trim(),
+      deadline: formValues.deadline.trim(),
+      projectDescription: formValues.projectDescription.trim(),
+      budgetRange: formValues.budgetRange.trim(),
+      attachmentName: attachment instanceof File ? attachment.name : "",
+      createdAt: new Date().toISOString(),
+      source: "grafikwork-website",
+    };
+
+    if (!requiredFieldsAreFilled) {
+      setSubmitState("error");
+      setErrorMessage("Preencha os campos obrigatorios para enviar.");
+      return;
+    }
+
+    try {
+      const response = await fetch(firebaseEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Firebase rejected the request.");
+      }
+
+      form.reset();
+      setFormValues({
+        name: "",
+        email: "",
+        whatsapp: "",
+        company: "",
+        projectType: "",
+        deadline: "",
+        projectDescription: "",
+        budgetRange: "",
+      });
+      setSubmitState("success");
+    } catch {
+      setSubmitState("error");
+      setErrorMessage("Nao foi possivel enviar sua solicitacao. Tente novamente.");
+    }
+  }
 
   return (
     <section
@@ -35,7 +134,7 @@ export default function ContactSection() {
           <div>
             <p className={eyebrowClass}>Lets play</p>
             <h2 className="mb-0 max-w-[760px] text-[clamp(1.8rem,3.5vw,3rem)] font-bold leading-none">
-              Vamos criar a sua poxima versão de3 presença na web
+              Vamos criar a sua proxima versao de presenca na web
             </h2>
           </div>
           <div className="flex flex-wrap gap-3 max-[560px]:flex-col">
@@ -62,34 +161,68 @@ export default function ContactSection() {
         <div
           className={`grid transition-[grid-template-rows,opacity,transform,margin] duration-500 ease-out ${
             isFormOpen
-              ? "mt-10 grid-rows-[1fr] opacity-100 translate-y-0"
-              : "mt-0 grid-rows-[0fr] opacity-0 -translate-y-2"
+              ? "mt-10 grid-rows-[1fr] translate-y-0 opacity-100"
+              : "mt-0 grid-rows-[0fr] -translate-y-2 opacity-0"
           }`}
         >
           <div className="overflow-hidden">
             <form
               id="contact-form"
               className="grid grid-cols-2 gap-5 border-t border-white/15 pt-8 max-[760px]:grid-cols-1"
+              onSubmit={handleSubmit}
             >
               <label className={labelClass}>
                 Nome
-                <input className={inputClass} name="name" type="text" />
+                <input
+                  className={inputClass}
+                  name="name"
+                  type="text"
+                  value={formValues.name}
+                  onChange={handleFieldChange}
+                  required
+                />
               </label>
               <label className={labelClass}>
                 E-mail
-                <input className={inputClass} name="email" type="email" />
+                <input
+                  className={inputClass}
+                  name="email"
+                  type="email"
+                  value={formValues.email}
+                  onChange={handleFieldChange}
+                  required
+                />
               </label>
               <label className={labelClass}>
                 WhatsApp
-                <input className={inputClass} name="whatsapp" type="tel" />
+                <input
+                  className={inputClass}
+                  name="whatsapp"
+                  type="tel"
+                  value={formValues.whatsapp}
+                  onChange={handleFieldChange}
+                  required
+                />
               </label>
               <label className={labelClass}>
                 Empresa (opcional)
-                <input className={inputClass} name="company" type="text" />
+                <input
+                  className={inputClass}
+                  name="company"
+                  type="text"
+                  value={formValues.company}
+                  onChange={handleFieldChange}
+                />
               </label>
               <label className={labelClass}>
                 Tipo de projeto
-                <select className={inputClass} name="projectType" defaultValue="">
+                <select
+                  className={inputClass}
+                  name="projectType"
+                  value={formValues.projectType}
+                  onChange={handleFieldChange}
+                  required
+                >
                   <option value="" disabled>
                     Selecione
                   </option>
@@ -102,18 +235,33 @@ export default function ContactSection() {
               </label>
               <label className={labelClass}>
                 Prazo desejado
-                <input className={inputClass} name="deadline" type="text" />
+                <input
+                  className={inputClass}
+                  name="deadline"
+                  type="text"
+                  value={formValues.deadline}
+                  onChange={handleFieldChange}
+                />
               </label>
               <label className={`${labelClass} col-span-2 max-[760px]:col-span-1`}>
-                Descrição do projeto
+                Descricao do projeto
                 <textarea
                   className={`${inputClass} min-h-36 resize-y`}
                   name="projectDescription"
+                  value={formValues.projectDescription}
+                  onChange={handleFieldChange}
+                  required
                 />
               </label>
               <label className={labelClass}>
-                Faixa de orçamento
-                <input className={inputClass} name="budgetRange" type="text" />
+                Faixa de orcamento
+                <input
+                  className={inputClass}
+                  name="budgetRange"
+                  type="text"
+                  value={formValues.budgetRange}
+                  onChange={handleFieldChange}
+                />
               </label>
               <label className={labelClass}>
                 Upload de briefing/anexo
@@ -123,6 +271,37 @@ export default function ContactSection() {
                   type="file"
                 />
               </label>
+
+              <div className="col-span-2 grid gap-3 max-[760px]:col-span-1">
+                {requiredFieldsAreFilled ? (
+                  <button
+                    className={`${primaryButtonClass} w-fit disabled:cursor-not-allowed disabled:opacity-60 max-[560px]:w-full`}
+                    type="submit"
+                    disabled={submitState === "submitting"}
+                  >
+                    {submitState === "submitting"
+                      ? "Enviando..."
+                      : "Enviar solicitacao"}
+                  </button>
+                ) : (
+                  <p className="mb-0 rounded-md border border-white/15 bg-white/10 px-4 py-3 text-sm font-bold text-white/70">
+                    Preencha nome, e-mail, WhatsApp, tipo de projeto e descricao
+                    para exibir o botao de envio.
+                  </p>
+                )}
+
+                {submitState === "success" ? (
+                  <p className="mb-0 rounded-md bg-lime-100 px-4 py-3 text-sm font-bold text-lime-900">
+                    Solicitacao enviada com sucesso.
+                  </p>
+                ) : null}
+
+                {submitState === "error" ? (
+                  <p className="mb-0 rounded-md bg-red-100 px-4 py-3 text-sm font-bold text-red-900">
+                    {errorMessage}
+                  </p>
+                ) : null}
+              </div>
             </form>
           </div>
         </div>
