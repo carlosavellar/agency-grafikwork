@@ -5,10 +5,10 @@ import { useState } from "react";
 import { assetPath } from "./assetPath";
 
 const navLinks = [
-  ["Servicos", "#services"],
+  ["Serviços", "#services"],
   ["Ferramentas", "#tools"],
   ["Sobre", "#about"],
-  ["Work", "#work"],
+  ["Portfólio", "#work"],
   ["Contato", "#contact"],
 ];
 
@@ -32,7 +32,7 @@ export default function Header() {
         <button
           className="hidden h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-md border border-white/25 text-white transition hover:border-cyan-300 hover:text-cyan-300 max-[900px]:flex"
           type="button"
-          aria-label={isMenuOpen ? "Close mobile menu" : "Open mobile menu"}
+          aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
           aria-controls="main-navigation"
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen((current) => !current)}
@@ -44,7 +44,7 @@ export default function Header() {
 
         <nav
           className="flex flex-wrap items-center justify-end gap-[clamp(14px,3vw,34px)] text-sm font-bold text-white max-[900px]:hidden"
-          aria-label="Main navigation"
+          aria-label="Navegação principal"
         >
           {navLinks.map(([label, href]) => (
             <a
@@ -65,7 +65,7 @@ export default function Header() {
             ? "grid-rows-[1fr] pt-4 opacity-100"
             : "grid-rows-[0fr] opacity-0"
         } min-[901px]:hidden`}
-        aria-label="Mobile navigation"
+        aria-label="Navegação mobile"
       >
         <div className="flex min-h-0 flex-col gap-1 overflow-hidden border-t border-white/10 pt-3">
           {navLinks.map(([label, href]) => (

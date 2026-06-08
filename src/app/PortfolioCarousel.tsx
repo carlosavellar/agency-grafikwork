@@ -13,27 +13,27 @@ type PortfolioItem = {
 
 const portfolioItems: PortfolioItem[] = [
   {
-    title: "Developer Portfolio Hero",
+    title: "Hero de portfólio para desenvolvedor",
     description:
-      "A bold programming-themed landing section with strong visual hierarchy, responsive spacing, and a clear project call to action.",
+      "Uma seção inicial com tema de programação, hierarquia visual forte, espaçamento responsivo e chamada clara para o projeto.",
     image: assetPath("/assets/copes-empresarial.png"),
   },
   {
-    title: "UX/UI Service Layout",
+    title: "Layout de serviços UX/UI",
     description:
-      "A service card concept focused on interface design, using a compact card structure and clear visual iconography.",
+      "Um conceito de cards de serviço focado em design de interface, com estrutura compacta e iconografia visual clara.",
     image: assetPath("/assets/montessori.png"),
   },
   {
-    title: "Frontend System",
+    title: "Sistema front-end",
     description:
-      "A frontend presentation card using React and Next.js patterns to communicate modern implementation work.",
+      "Um card de apresentação front-end usando padrões de React e Next.js para comunicar uma implementação moderna.",
     image: assetPath("/assets/soltec.png"),
   },
   {
-    title: "Web Development Card",
+    title: "Card de desenvolvimento web",
     description:
-      "A polished service visual for code-focused projects, built to sit cleanly inside responsive portfolio grids.",
+      "Um visual de serviço para projetos focados em código, criado para se integrar bem a grids de portfólio responsivos.",
     image: assetPath("/assets/casa-da-uniao.png"),
   },
 ];
@@ -71,7 +71,7 @@ export default function PortfolioCarousel() {
         <button
           className="flex h-11 w-11 items-center justify-center rounded-md border border-black/10 bg-white text-2xl font-black text-[#0d063f] shadow-sm transition hover:border-cyan-400 hover:text-cyan-500 disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-black/10 disabled:hover:text-[#0d063f]"
           type="button"
-          aria-label="Show previous portfolio images"
+          aria-label="Mostrar imagens anteriores do portfólio"
           onClick={showPrevious}
           disabled={!canGoPrevious}
         >
@@ -80,7 +80,7 @@ export default function PortfolioCarousel() {
         <button
           className="flex h-11 w-11 items-center justify-center rounded-md border border-black/10 bg-white text-2xl font-black text-[#0d063f] shadow-sm transition hover:border-cyan-400 hover:text-cyan-500 disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-black/10 disabled:hover:text-[#0d063f]"
           type="button"
-          aria-label="Show next portfolio images"
+          aria-label="Mostrar próximas imagens do portfólio"
           onClick={showNext}
           disabled={!canGoNext}
         >
@@ -131,7 +131,7 @@ export default function PortfolioCarousel() {
           className="fixed inset-0 z-50 flex items-center justify-center bg-[#07041c]/80 px-4 py-8"
           role="dialog"
           aria-modal="true"
-          aria-label={`${selectedItem.title} portfolio details`}
+          aria-label={`Detalhes do portfólio: ${selectedItem.title}`}
           onClick={() => setSelectedItem(null)}
         >
           <div
@@ -152,13 +152,13 @@ export default function PortfolioCarousel() {
               <button
                 className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-md bg-[#f1f1f1] text-xl font-black text-[#0d063f] transition hover:bg-cyan-100"
                 type="button"
-                aria-label="Close portfolio detail"
+                aria-label="Fechar detalhe do portfólio"
                 onClick={() => setSelectedItem(null)}
               >
                 x
               </button>
               <p className="mb-3 text-xs font-extrabold uppercase text-cyan-500">
-                Portfolio
+                Portfólio
               </p>
               <h3 className="mb-4 text-[clamp(1.8rem,4vw,3.2rem)] font-black leading-none text-[#11152b]">
                 {selectedItem.title}

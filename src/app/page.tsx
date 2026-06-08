@@ -10,13 +10,13 @@ import ContactSection from "./ContactSection";
 
 const tools = [
   {
-    title: "Frameworks e Bibliotecas",
-    body: "Utilizamos bibliotecas que permitem a melhor manutenibilidade, escalabilidade e performance.",
+    title: "Frameworks e bibliotecas",
+    body: "Utilizamos bibliotecas que permitem melhor manutenibilidade, escalabilidade e performance.",
     image: assetPath("/assets/react.png"),
   },
   {
     title: "Clean code",
-    body: "Desenvolvemos softwares que sao faceis de ler, manter e escalar.",
+    body: "Desenvolvemos software fácil de ler, manter e escalar.",
     image: assetPath("/assets/web-dev.png"),
   },
   {
@@ -26,7 +26,7 @@ const tools = [
   },
   {
     title: "Versionamento",
-    body: "Organizamos entregas com controle de versao, colaboracao e historico claro de desenvolvimento.",
+    body: "Organizamos entregas com controle de versão, colaboração e histórico claro de desenvolvimento.",
     image: assetPath("/assets/github.png"),
   },
 ];
@@ -34,19 +34,19 @@ const tools = [
 const services = [
   {
     title: "UX/UI",
-    body: "Criamos interfaces pensadas para usuarios reais, com fluxos claros e uma experiencia visual memoravel.",
+    body: "Criamos interfaces pensadas para usuários reais, com fluxos claros e uma experiência visual memorável.",
     visual: "ux",
     theme: "bg-[#31bdc6]",
   },
   {
     title: "Front-end",
-    body: "Desenvolvemos sites modernos, responsivos e performaticos com React, Next.js e boas praticas.",
+    body: "Desenvolvemos sites modernos, responsivos e performáticos com React, Next.js e boas práticas.",
     visual: "code",
     theme: "bg-[#442df0]",
   },
   {
     title: "Design",
-    body: "Criamos identidades digitais consistentes para transformar ideias em presenca visual forte.",
+    body: "Criamos identidades digitais consistentes para transformar ideias em presença visual forte.",
     visual: "cube",
     theme: "bg-[#a453f2]",
   },
@@ -78,13 +78,13 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#09042b]/85 via-[#120650]/50 to-[#09042b]/30" />
         <div className="relative z-[1] mx-auto grid w-full max-w-[1080px] grid-cols-[minmax(0,620px)_minmax(280px,380px)] items-center justify-center gap-[clamp(28px,5vw,58px)] max-[900px]:grid-cols-1 max-[900px]:items-start max-[560px]:gap-5">
           <div id="hero" className="max-w-[690px] text-white">
-            <p className={eyebrowClass}>Creative development portfolio</p>
+            <p className={eyebrowClass}>Portfólio de desenvolvimento criativo</p>
             <h1 className="mb-5 text-[clamp(2.45rem,6vw,4.6rem)] font-bold leading-[0.95] max-[560px]:mb-2 max-[560px]:text-[1.75rem]">
-              Desenvolvimento Front-end
+              Desenvolvimento front-end
             </h1>
             <p className="max-w-[620px] text-[clamp(1rem,1.6vw,1.18rem)] leading-7 text-white/80 max-[560px]:text-xs max-[560px]:leading-5">
-              A Grafikwork é uma empresa especializada em desenvolvimento
-              Front-end, com forte atuação na criação de interfaces modernas,
+              A Grafikwork é uma empresa especializada em desenvolvimento
+              front-end, com forte atuação na criação de interfaces modernas.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3.5 max-[560px]:mt-2 max-[560px]:flex-col max-[560px]:items-stretch">
               <a className={primaryButtonClass} href="#work">
@@ -114,10 +114,10 @@ export default function Home() {
         />
         <div className="mx-auto mb-[clamp(34px,6vw,54px)] max-w-[520px] text-center">
           <p className="mb-2 text-[0.66rem] font-black uppercase text-[#2b7cf6]">
-            Nossos servicos
+            Nossos serviços
           </p>
           <h2 className="mb-0 text-[clamp(1.65rem,3.1vw,2.1rem)] font-black leading-[1.05] text-[#11152b]">
-            Prezamos pelas melhores praticas de desenvolvimento.
+            Prezamos pelas melhores práticas de desenvolvimento.
           </h2>
         </div>
 
@@ -194,22 +194,22 @@ export default function Home() {
             <Image
               className="object-cover"
               src={assetPath("/assets/about-image.png")}
-              alt="Grafikwork profile portrait"
+              alt="Retrato do perfil da Grafikwork"
               fill
               sizes="(max-width: 800px) 90vw, 420px"
             />
           </div>
         </div>
         <div className="max-w-[660px]">
-          <p className={eyebrowClass}>Sobre Grafikwork</p>
+          <p className={eyebrowClass}>Sobre a Grafikwork</p>
           <h2 className="mb-5 text-[clamp(2rem,4vw,3.5rem)] font-bold leading-none">
             Excelência em desenvolvimento
           </h2>
           <p id="foto-text" className="leading-7 text-[#6f7280]">
             Empresa com mais de 25 anos de experiência em projetos de aplicações
-            web e mobile, do planejamento, desenvolvimento, design UX/UI,
-            front-end, testes e produção. Nosso objetivo desenvolver aplicações
-            que agreguem valores para sua empresa, projeto, prtoduto.
+            web e mobile, do planejamento ao desenvolvimento, design UX/UI,
+            front-end, testes e produção. Nosso objetivo é desenvolver aplicações
+            que agreguem valor à sua empresa, projeto ou produto.
           </p>
           <div
             id="foto"
@@ -232,7 +232,7 @@ export default function Home() {
                 target="_blank"
                 className="text-sky-700 italic linkedin text-xs font-semibold tracking-wide"
               >
-                Linkedin
+                LinkedIn
               </Link>
             </span>
           </div>
@@ -250,9 +250,9 @@ export default function Home() {
           data-parallax-speed="0.18"
         />
         <div className="mx-auto mb-10 max-w-[740px] text-center">
-          <p className={eyebrowClass}>Selected work</p>
+          <p className={eyebrowClass}>Trabalhos selecionados</p>
           <h2 className="mb-5 text-[clamp(2rem,4vw,3rem)] font-bold leading-none">
-            Portifólio
+            Portfólio
           </h2>
           <p className="mx-auto max-w-xl leading-7 text-[#6f7280]">
             Explore alguns trabalhos e materiais visuais. Use as setas para
@@ -272,13 +272,13 @@ export default function Home() {
           data-parallax-speed="-0.16"
         />
         <div className="mx-auto mb-[clamp(40px,7vw,72px)] max-w-[720px] text-center">
-          <p className={eyebrowClass}>Nossos servicos</p>
+          <p className={eyebrowClass}>Nossos serviços</p>
           <h2 className="mb-5 text-[clamp(2.1rem,4.6vw,4rem)] font-bold leading-none">
             Ferramentas e tecnologias que utilizamos.
           </h2>
           <p className="mx-auto max-w-xl leading-7 text-[#6f7280]">
-            Abaixo estao algumas tecnologias, bibliotecas e praticas que guiam a
-            criacao de experiencias digitais modernas.
+            Abaixo estão algumas tecnologias, bibliotecas e práticas que guiam a
+            criação de experiências digitais modernas.
           </p>
         </div>
         <div className="mx-auto grid max-w-[1040px] grid-cols-2 gap-x-[clamp(38px,8vw,104px)] gap-y-[clamp(28px,5vw,58px)] max-[900px]:grid-cols-1">
@@ -308,33 +308,33 @@ export default function Home() {
       </section>
       <ContactSection />
       {false ? (
-      <section
-        id="contact"
-        className="flex items-center justify-between gap-3.5 bg-[#0d063f] px-[clamp(22px,7vw,96px)] py-14 text-white max-[560px]:flex-col max-[560px]:items-stretch"
-      >
-        <div>
-          <p className={eyebrowClass}>Lets play</p>
-          <h2 className="mb-0 max-w-[760px] text-[clamp(1.8rem,3.5vw,3rem)] font-bold leading-none">
-            Vamos criar a sua poxima versão de3 presença na web
-          </h2>
-        </div>
-        <div className="flex flex-wrap gap-3 max-[560px]:flex-col">
-          <a
-            className={`${primaryButtonClass} max-[560px]:w-full`}
-            href="mailto:hello@grafikwork.dev"
-          >
-            Contato
-          </a>
-          <a
-            className="inline-flex min-w-32 justify-center rounded-md border border-white/40 px-5 py-3.5 text-sm font-extrabold text-white transition hover:border-lime-300 hover:text-lime-200 max-[560px]:w-full"
-            href="https://wa.me/5511976610711"
-            target="_blank"
-            rel="noreferrer"
-          >
-            WhatsApp
-          </a>
-        </div>
-      </section>
+        <section
+          id="contact"
+          className="flex items-center justify-between gap-3.5 bg-[#0d063f] px-[clamp(22px,7vw,96px)] py-14 text-white max-[560px]:flex-col max-[560px]:items-stretch"
+        >
+          <div>
+            <p className={eyebrowClass}>Vamos conversar</p>
+            <h2 className="mb-0 max-w-[760px] text-[clamp(1.8rem,3.5vw,3rem)] font-bold leading-none">
+              Vamos criar a próxima versão da sua presença na web
+            </h2>
+          </div>
+          <div className="flex flex-wrap gap-3 max-[560px]:flex-col">
+            <a
+              className={`${primaryButtonClass} max-[560px]:w-full`}
+              href="mailto:hello@grafikwork.dev"
+            >
+              Contato
+            </a>
+            <a
+              className="inline-flex min-w-32 justify-center rounded-md border border-white/40 px-5 py-3.5 text-sm font-extrabold text-white transition hover:border-lime-300 hover:text-lime-200 max-[560px]:w-full"
+              href="https://wa.me/5511976610711"
+              target="_blank"
+              rel="noreferrer"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </section>
       ) : null}
 
       <footer className="flex items-center justify-between gap-6 bg-[#07041c] px-[clamp(22px,7vw,96px)] py-6 text-white max-[560px]:items-start max-[560px]:flex-col">

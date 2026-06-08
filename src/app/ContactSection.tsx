@@ -89,7 +89,7 @@ export default function ContactSection() {
 
     if (!requiredFieldsAreFilled) {
       setSubmitState("error");
-      setErrorMessage("Preencha os campos obrigatorios para enviar.");
+      setErrorMessage("Preencha os campos obrigatórios para enviar.");
       return;
     }
 
@@ -120,7 +120,7 @@ export default function ContactSection() {
       setSubmitState("success");
     } catch {
       setSubmitState("error");
-      setErrorMessage("Nao foi possivel enviar sua solicitacao. Tente novamente.");
+      setErrorMessage("Não foi possível enviar sua solicitação. Tente novamente.");
     }
   }
 
@@ -132,9 +132,9 @@ export default function ContactSection() {
       <div className="mx-auto max-w-[1180px]">
         <div className="flex items-center justify-between gap-3.5 max-[560px]:flex-col max-[560px]:items-stretch">
           <div>
-            <p className={eyebrowClass}>Lets play</p>
+            <p className={eyebrowClass}>Vamos conversar</p>
             <h2 className="mb-0 max-w-[760px] text-[clamp(1.8rem,3.5vw,3rem)] font-bold leading-none">
-              Vamos criar a sua proxima versao de presenca na web
+              Vamos criar a próxima versão da sua presença na web
             </h2>
           </div>
           <div className="flex flex-wrap gap-3 max-[560px]:flex-col">
@@ -244,7 +244,7 @@ export default function ContactSection() {
                 />
               </label>
               <label className={`${labelClass} col-span-2 max-[760px]:col-span-1`}>
-                Descricao do projeto
+                Descrição do projeto
                 <textarea
                   className={`${inputClass} min-h-36 resize-y`}
                   name="projectDescription"
@@ -254,7 +254,7 @@ export default function ContactSection() {
                 />
               </label>
               <label className={labelClass}>
-                Faixa de orcamento
+                Faixa de orçamento
                 <input
                   className={inputClass}
                   name="budgetRange"
@@ -281,18 +281,18 @@ export default function ContactSection() {
                   >
                     {submitState === "submitting"
                       ? "Enviando..."
-                      : "Enviar solicitacao"}
+                      : "Enviar solicitação"}
                   </button>
                 ) : (
                   <p className="mb-0 rounded-md border border-white/15 bg-white/10 px-4 py-3 text-sm font-bold text-white/70">
-                    Preencha nome, e-mail, WhatsApp, tipo de projeto e descricao
-                    para exibir o botao de envio.
+                    Preencha nome, e-mail, WhatsApp, tipo de projeto e descrição
+                    para exibir o botão de envio.
                   </p>
                 )}
 
                 {submitState === "success" ? (
                   <p className="mb-0 rounded-md bg-lime-100 px-4 py-3 text-sm font-bold text-lime-900">
-                    Solicitacao enviada com sucesso.
+                    Solicitação enviada com sucesso.
                   </p>
                 ) : null}
 
