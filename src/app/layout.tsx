@@ -19,7 +19,7 @@ export default function RootLayout({
       <body>
         {children}
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${2321524347}`}
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
