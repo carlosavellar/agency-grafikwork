@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 
-const googleAnalyticsId = "G-0HB4MVTN61";
+const googleAnalyticsId = "GW-2026";
 
 export const metadata: Metadata = {
   title: "Agência Grafikwork",
