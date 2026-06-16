@@ -23,6 +23,16 @@ a {
 img {
   display: block;
 }
+
+.hero-bg {
+  transform: scale(1.04);
+}
+
+.hero-bg--subject-right {
+  object-position: center center;
+  transform: translateX(clamp(190px, 23vw, 430px)) scale(1.42);
+  transform-origin: center center;
+}
 #home div h1,
 #services h2,
 #work h2,
@@ -53,6 +63,7 @@ img {
 }
 
 #home {
+  background: #126cf3;
   z-index: 2;
 }
 
