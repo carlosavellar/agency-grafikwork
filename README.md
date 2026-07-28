@@ -1,6 +1,8 @@
-# 🚀 Web Development Portfolio & Projects
+# 🚀 Micro1
 
-Welcome to my portfolio showcase! Below is a curated collection of web applications demonstrating different frontend architectures, performance optimizations, and responsive designs.
+Hello, My name is José Carlos this is my main repository, Frontend developer, Designer UX/UI. I build up this README file to better show you my showcases with tree projects selected by me.
+
+This projects are some sample of my work.:
 
 ---
 
